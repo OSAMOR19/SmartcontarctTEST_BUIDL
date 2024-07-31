@@ -1,0 +1,61 @@
+@media (min-width: 889px) {
+  .centerForm {
+    margin-top: 1.0rem;
+    width: 42% !important;
+  }
+}
+
+@media (min-width: 962px) {
+  .centerForm {
+    margin-top: 1.0rem;
+    width: 40% !important;
+  }
+}
+
+@media (min-width: 768px) {
+  .stickyNavPadding {
+    padding-left: 4rem !important;
+    padding-right: 4rem !important;
+  }
+
+  .firstSectionPadding {
+    margin-top: 1rem;
+    padding-left: 0%;
+    padding-right: 0%;
+  }
+
+  .pTagWidth90 {
+    width: 35%;
+  }
+
+  .smallSolidButton {
+    width: 25%;
+    margin-top: 1rem;
+    padding-top: 0.5rem !important;
+    padding-bottom: 0.5rem !important;
+  }
+
+  .userProfile {
+    display: inline;
+  }
+
+  .userProfile {
+    display: flex !important;
+    flex-direction: column !important;
+  }
+
+  .centerForm {
+    margin-top: 1.0rem;
+    width: 50% !important;
+  }
+
+}
+
+/* trying to manipulate things on steps and continue */
+
+@media (min-width: 520px) {
+  .stepsTouch {
+    display: flex;
+    flex-direction: row;
+  }
+}

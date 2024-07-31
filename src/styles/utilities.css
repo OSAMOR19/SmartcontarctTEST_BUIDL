@@ -1,0 +1,88 @@
+:root {
+    --appYellow: #EEA20E;
+    /* override toastify success color */
+    --toastify-icon-color-success: #EEA20E !important;
+}
+
+.useAppYellow {
+    color: var(--appYellow);
+}
+
+.fullHeightWithColorBg {
+    width: 100%;
+    min-height: 100vh;
+    flex-direction: column;
+    display: flex;
+    background-color: #1A1C28;
+}
+
+.stickyNavPadding {
+    padding-left: 0.2rem !important;
+    padding-right: 0.2rem !important;
+}
+
+.firstSectionPadding {
+    margin-top: 2.4rem;
+    padding-left: 1.7%;
+    padding-right: 1.7%;
+}
+
+.strongH2Tag {
+    font-size: clamp(1rem, 1.8rem + 1.5vw, 2.8rem);
+    font-weight: 700;
+    color: #ffffff;
+}
+
+.normalPTag {
+    font-size: clamp(0.8rem, 0.8rem + 1.5vw, 1.2rem);
+    font-weight: normal;
+    color: #ffffff;
+}
+
+.pTagWidth90 {
+    width: 90%;
+    margin-top: 1rem;
+    font-size: clamp(1rem, 0.87rem + 1.5vw, 1.12rem);
+    color: #FFFFFF;
+    font-weight: 500;
+    text-align: center;
+}
+
+.fullSolidButton {
+    width: 100%;
+    margin-bottom: 1rem !important;
+    font-size: clamp(1rem, 0.75rem + 1.5vw, 1.2rem) !important;
+    font-weight: 600 !important;
+    background-color: var(--appYellow) !important;
+    border-color: #EEA20E !important;
+    color: #222532 !important;
+}
+
+.smallSolidButton {
+    width: 70%;
+    margin-top: 1rem;
+    padding-top: 0.5rem !important;
+    padding-bottom: 0.5rem !important;
+    font-size: clamp(1rem, 0.75rem + 1.5vw, 1.2rem) !important;
+    font-weight: 600 !important;
+    background-color: var(--appYellow) !important;
+    border-color: #EEA20E !important;
+    color: #222532 !important;
+}
+
+.smallOutlineButton {
+    width: 70%;
+    margin-top: 1rem;
+    padding-top: 0.5rem !important;
+    padding-bottom: 0.5rem !important;
+    font-size: clamp(1rem, 0.75rem + 1.5vw, 1.2rem) !important;
+    font-weight: 600 !important;
+    background-color: transparent !important;
+    border-width: 2px !important;
+    border-color: #EEA20E !important;
+    color: #EEA20E !important;
+}
+
+.userProfile {
+    display: none !important;
+}

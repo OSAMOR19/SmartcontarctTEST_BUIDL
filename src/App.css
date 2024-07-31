@@ -1,0 +1,409 @@
+/* App */
+.App {
+    display: flex;
+    width: 100%;
+    min-height: 100vh;
+    flex-direction: column;
+    align-items: center;
+    text-align: left;
+}
+
+.App {
+    background-image: url('./assets/images/hi-bg.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-clip: border-box;
+    background-position: center;
+}
+
+.Header {
+    position: fixed !important;
+    top: 0;
+    width: 100%;
+    z-index: 1000 !important;
+    border-bottom: #354175 1px solid;
+}
+
+/* react-pro-sidebar*/
+.css-ewdv3l {
+    padding-left: 1.1rem !important;
+    padding-right: 1.1rem !important;
+}
+
+.css-ewdv3l {
+    padding-left: 1.1rem !important;
+    padding-right: 1.1rem !important;
+}
+
+.ps-menuitem-root {
+    border-radius: 21px !important;
+}
+
+.css-1wvake5 {
+    width: 204px !important;
+    min-width: 200px !important;
+}
+
+.css-8i0j0q {
+    position: fixed;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
+    z-index: 1;
+    background-color: rgb(0, 0, 0, 0.4) !important;
+}
+
+.css-1wvake5 {
+    position: relative;
+    border-right-width: 0.7px !important;
+    border-right-style: solid;
+    border-color: #565e82 !important;
+    -webkit-transition: width, left, right, 300ms;
+    transition: width, left, right, 300ms;
+    width: 250px;
+    min-width: 250px;
+    z-index: 1099 !important;
+}
+
+/* bootstrap dropdown styles override */
+
+.dropdown-toggle::after {
+    display: none !important;
+
+}
+
+.dropdown-item:hover {
+    color: #ffffff;
+    background-color: #272A38 !important;
+}
+
+a:hover {
+    --bs-link-color-rgb: none !important;
+}
+
+.dropdown-item {
+    font-size: clamp(1rem, 1.8rem + 1.5vw, 1.25rem) !important;
+    font-weight: 600 !important;
+    color: #ffffff !important;
+}
+
+.dropdown-menu {
+    color: #ffffff !important;
+    background-color: #272A38 !important;
+    border: 0.5px solid #495071 !important;
+    border-radius: 5px !important;
+}
+
+.dropdown-menu[data-bs-popper] {
+    top: 100%;
+    margin-top: var(--bs-dropdown-spacer);
+    left: auto !important;
+}
+
+.dropdown-divider {
+    border-top: 1px solid #666464 !important;
+}
+
+@media (min-width: 768px) {
+    .dropdown-menu[data-bs-popper] {
+        top: 100%;
+        left: 0 !important;
+    }
+}
+
+/* bootstrap input */
+.form-control {
+    color: #C8C8C8 !important;
+    padding: .7rem .75rem !important;
+}
+
+.form-control:focus {
+    color: #C8C8C8 !important;
+    box-shadow: none !important;
+}
+
+
+.navbar-expand .navbar-nav .nav-link {
+    padding-right: 0px !important;
+    padding-left: 0px !important;
+}
+
+.navbar-expand .navbar-nav .dropdown-menu {
+    right: 0% !important;
+
+}
+
+::placeholder {
+    color: #C8C8C8 !important;
+    font-size: clamp(1rem, 1.8rem + 1.5vw, 1rem);
+    opacity: 1;
+}
+
+::-ms-input-placeholder {
+    color: #C8C8C8 !important;
+    font-size: 0.8rem !important;
+}
+
+.form-check-input :not(#custom-switch) {
+    width: 1.4em !important;
+    height: 1.4em !important;
+    margin-right: 0.3rem !important;
+    display: flex;
+    flex-direction: row;
+}
+
+.form-check-input:checked {
+    background-color: #EEA20E !important;
+    border-color: #EEA20E !important;
+}
+
+.form-check-input:focus {
+    box-shadow: none !important;
+}
+
+/* react-phone-input */
+.react-tel-input .form-control {
+    position: relative;
+    font-size: 0.8rem !important;
+    letter-spacing: .01rem;
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+    padding-left: 54px !important;
+    margin-left: 0;
+    background: #404354 !important;
+    border: 1px solid #404354 !important;
+    border-radius: 5px;
+    line-height: 25px;
+    height: 45px !important;
+    width: 100% !important;
+    outline: none;
+}
+
+.react-tel-input .flag-dropdown {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    padding: 0;
+    background-color: #333645 !important;
+    border: 3px solid #404354 !important;
+    border-radius: 8px !important;
+}
+
+.react-tel-input .selected-flag {
+    outline: none;
+    position: relative;
+    width: 43px !important;
+    height: 100%;
+    padding: 2px 3px 0 8px !important;
+    border-radius: 3px 0 0 3px;
+}
+
+.react-tel-input .country-list {
+    outline: none;
+    z-index: 1;
+    list-style: none;
+    position: absolute;
+    padding: 0;
+    margin: 10px 0 10px -1px;
+    box-shadow: 1px 2px 10px rgba(0, 0, 0, 0.35);
+    background-color: #333645 !important;
+    width: 300px;
+    max-height: 200px;
+    overflow-y: scroll;
+    color: white !important;
+    font-size: 0.8rem !important;
+    border-radius: 0 0 3px 3px;
+}
+
+.react-tel-input .country-list:hover {
+    background-color: #333645 !important;
+}
+
+.react-tel-input .country-list .country.highlight {
+    background-color: #404354 !important;
+    color: white !important;
+}
+
+.react-tel-input .country-list .country .dial-code {
+    color: #C8C8C8;
+}
+
+.react-tel-input .flag-dropdown.open .selected-flag {
+    background: #333645 !important;
+    border-radius: 3px 0 0 0;
+}
+
+.react-tel-input .selected-flag:hover,
+.react-tel-input .selected-flag:focus {
+    background-color: #333645 !important;
+}
+
+.react-tel-input .country-list .country:hover {
+    background-color: #404354 !important;
+}
+
+.react-tel-input .selected-flag .arrow {
+    position: relative;
+    top: 50%;
+    margin-top: -2px;
+    left: 20px;
+    width: 2 !important;
+    height: 0;
+    border-left: 4px solid transparent;
+    border-right: 4px solid transparent;
+    border-top: 4px solid #ffffff !important;
+}
+
+/* react-phone-input */
+div input:not(.form-control, .form-check-input) {
+    width: 3.5em !important;
+    height: 3.5em !important;
+    background-color: #454B65 !important;
+    color: #ffffff;
+    border: none !important;
+    outline: none !important;
+    font-weight: bolder;
+    border-radius: 0.2rem !important;
+}
+
+/* use drop zone style */
+section .dropzone {
+    background: #404354;
+    outline: 4px dashed #3F4561;
+    border-radius: 8px;
+}
+
+/* bootstrap checkbox style for specific component called ProjectDone */
+
+div .myStyleCheckbox form .form-check {
+    display: flex;
+    min-height: 1.5rem;
+    padding-left: 1.5em;
+    margin-bottom: .125rem;
+    align-items: center;
+    gap: 1rem;
+}
+
+div .myStyleCheckbox form label {
+    display: inline-block;
+    color: white;
+    font-size: 1.25rem;
+    font-weight: 500;
+}
+
+div .myStyleCheckbox form .form-check-input[type="checkbox"] {
+    border-radius: 5rem !important;
+}
+
+div .myStyleCheckbox form .form-check .form-check-input {
+    float: left;
+    margin-left: -1.5em;
+}
+
+div .myStyleCheckbox form .form-check-input {
+    --bs-form-check-bg: var(--bs-body-bg);
+    flex-shrink: 0;
+    width: 2rem !important;
+    height: 2rem !important;
+    margin-top: .25em;
+    vertical-align: top;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background-color: #272A38;
+    background-image: var(--bs-form-check-bg-image);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    border: 1px solid #7581B7 !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+}
+
+/* styling modal for a specific component called AddTeamModal */
+.modal-content {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    color: var(--bs-modal-color);
+    pointer-events: auto;
+    background-color: #21232F !important;
+    background-clip: padding-box;
+    border: var(--bs-modal-border-width) solid var(--bs-modal-border-color);
+    border-radius: var(--bs-modal-border-radius);
+    outline: 0;
+}
+
+.modal-header {
+    border-bottom: 0 !important;
+}
+
+.modal-title {
+    margin-bottom: 0;
+    line-height: var(--bs-modal-title-line-height);
+    color: white !important;
+}
+
+.modal-footer {
+    justify-content: flex-start !important;
+    border-top: 0 !important;
+}
+
+.btn-close {
+    --bs-btn-close-color: #ffffff !important;
+    width: 0.05rem !important;
+    height: 0.05rem !important;
+    --bs-btn-close-focus-shadow: none !important;
+    background: #ffffff url(./assets/images/close-modal.png) !important;
+    padding: 0.8rem !important;
+    background-repeat: no-repeat !important;
+    background-position: center !important;
+    border: 0;
+    border-radius: 3rem !important;
+}
+
+
+/* toastify background changed */
+.Toastify__toast-theme--dark {
+    font-size: clamp(1rem, 1.8rem + 1.5vw, 1.5rem) !important;
+    font-weight: 500;
+    background: #404354 !important;
+    color: #ffff;
+}
+
+@media only screen and (max-width: 480px) {
+
+    .Toastify__toast-container--top-left,
+    .Toastify__toast-container--top-center,
+    .Toastify__toast-container--top-right {
+        transform: translateX(0);
+        padding: 0.5rem 0.9rem !important;
+    }
+}
+
+/* overall scrollbar */
+/* For webkit-based browsers */
+::-webkit-scrollbar {
+    width: 4px;
+    /* Width of the scrollbar */
+}
+
+/* Track (the area where the scrollbar runs) */
+::-webkit-scrollbar-track {
+    background: #636882;
+    /* Color of the scrollbar track */
+}
+
+/* Handle (the draggable part of the scrollbar) */
+::-webkit-scrollbar-thumb {
+    background: #1A1D2E;
+    /* Color of the scrollbar handle */
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+    /* Color of the scrollbar handle on hover */
+}
