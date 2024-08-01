@@ -10,11 +10,7 @@ function Directories() {
   };
 
   return (
-    <Container
-      style={{
-        paddingTop: "6rem",
-      }}
-    >
+    <Container>
       <Row>
         {directories.map(({ title, description }, index) => (
           <Col xs={12} md={6} key={index} className="pb-4 pb-md-0">

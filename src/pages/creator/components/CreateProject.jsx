@@ -1,29 +1,13 @@
-import { Container, Col, Row, Image } from "react-bootstrap";
-import images from "../../../../constants/images";
-import GiftBox from "../../../../assets/icons/gift-box.svg";
 import { useNavigate } from "react-router-dom";
-import MediumSolidButton from "../../../../components/ui/buttons/MediumSolidButton";
+import { Container, Col, Image } from "react-bootstrap";
+import MediumSolidButton from "../../../components/ui/buttons/MediumSolidButton";
+import images from "../../../constants/images";
 
 const CreateProject = () => {
   const navigate = useNavigate();
   const handleCreateProject = () => {
     navigate("/creator/create-project");
   };
-  const divStyle = {
-    display: "flex",
-    flexDirection: "column",
-    alignItems: "center",
-    justifyContent: "center",
-  };
-
-  const offerStyle = {
-    border: "0.075rem solid #3F4561",
-    borderRadius: "14px",
-    textAlign: "center",
-    color: "#ffffff",
-    background: "#222532",
-  };
-
   return (
     <Container
       style={{
@@ -38,7 +22,7 @@ const CreateProject = () => {
           borderRadius: 14 + "px",
         }}
       >
-        <div style={divStyle}>
+        <div className="d-flex flex-column align-align-items-center justify-content-center">
           <Image
             src={images.createImage.src}
             alt={images.createImage.alt}
@@ -56,37 +40,19 @@ const CreateProject = () => {
             Create Project
           </h4>
           <Col md={7}>
-            <p
-              className="normalPTag"
-              style={{
-                fontWeight: "500",
-                textAlign: "center",
-              }}
-            >
+            <p className="normalPTag fw-medium text-center">
               The world needs builders like you to bring the future a
               thousand miles closer.
             </p>
           </Col>
           <div className="px-4 py-2 px-lg-5" style={offerStyle}>
             <span className="d-inline-flex justify-content-center align-items-center">
-              {/* <GiftBox /> */}
-              <span
-                className="normalPTag"
-                style={{
-                  fontWeight: "500",
-                  // marginInlineStart: "1rem",
-                }}
-              >
+              <span className="normalPTag fw-medium">
                 What are you building today?
               </span>
             </span>
           </div>
-          <div
-            style={{
-              width: 100 + "%",
-              textAlign: "center",
-            }}
-          >
+          <div className="w-w-100 text-center">
             <MediumSolidButton
               type="button"
               text="Create Project"

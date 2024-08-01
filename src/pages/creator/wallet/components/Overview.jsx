@@ -44,11 +44,7 @@ function Overview() {
   };
 
   return (
-    <Container
-      style={{
-        paddingTop: "6rem",
-      }}
-    >
+    <Container>
       <div style={cardBody}>
         <Row className="align-items-center g-5">
           <Col md={6}>

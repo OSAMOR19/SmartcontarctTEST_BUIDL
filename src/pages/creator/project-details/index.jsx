@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import CreatorLayout from "../components/layouts";
+import EnhancedBreadcrumb from "../components/layouts/EnhancedBreadcrumb ";
 import Applicants from "./components/Applicants";
 import NoApplicants from "./components/NoApplicants";
 import ProjectInfo from "./components/ProjectInfo";
@@ -26,9 +27,9 @@ const ProjectDetails = () => {
   return (
     <div className="fullHeightWithColorBg">
       <CreatorLayout />
+      <EnhancedBreadcrumb previousValue={project?.title} />
       <Container
         style={{
-          paddingTop: "7rem",
           paddingBottom: "2rem",
         }}
       >

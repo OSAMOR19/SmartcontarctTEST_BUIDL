@@ -1,13 +1,14 @@
 import { useEffect } from "react";
-import Hello from "./components/Hello";
 import CreatorLayout from "../components/layouts";
-import CreateProject from "./components/CreateProject";
+import Hello from "../components/Hello";
+import CreateProject from "../create-project";
 import Overview from "./components/Overview";
 import MyProjects from "./components/MyProjects";
 import Transaction from "./components/Transaction";
 import { useDispatch, useSelector } from "react-redux";
 import { selectProject, getAllProjects } from "../../../store/projects/reducer";
 import CreatorSpinner from "../components/atoms/CreatorSpinner";
+import EnhancedBreadcrumb from "../components/layouts/EnhancedBreadcrumb ";
 
 const CreatorDashboard = () => {
   const { allProjects, requestStatus } = useSelector(selectProject);
@@ -30,6 +31,7 @@ const CreatorDashboard = () => {
   return (
     <div className="fullHeightWithColorBg">
       <CreatorLayout />
+      <EnhancedBreadcrumb currentValue={"Dashboard"} />
       <Hello />
       {allProjects && allProjects.length > 0 ? (
         <>

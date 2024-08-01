@@ -22,26 +22,25 @@ const CreatorLayout = () => {
     },
     {
       label: "Wallets",
-      icon: <Wallet active={location.pathname === "/wallet"} />,
-      path: "#",
-      className: "opacity-2",
+      icon: <Wallet active={location.pathname === "/creator/wallet"} />,
+      path: "/creator/wallet",
     },
 
     {
       label: "Projects",
       icon: <Project active={location.pathname === "/creator-projects"} />,
-      path: "#",
+      path: "/creator/projects",
     },
     {
       label: "Multi-AI tool",
       icon: <AiTools active={location.pathname === "/multi-ai"} />,
-      path: "#",
+      path: "/creator/multi-ai",
     },
 
     {
       label: "Partner Directories",
       icon: <FolderSvg active={location.pathname === "/partner-directories"} />,
-      path: "#",
+      path: "/creator/partner-directories",
     },
 
     {

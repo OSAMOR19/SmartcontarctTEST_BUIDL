@@ -7,6 +7,7 @@ import ProjectTitle from "./components/ProjectTitle";
 import ProjectFiles from "./components/ProjectFiles";
 import ProjectDone from "./components/ProjectDone";
 import fileToBase64 from "./fileToBase64";
+import EnhancedBreadcrumb from "../components/layouts/EnhancedBreadcrumb ";
 
 const CreateProject = () => {
   const [currentPage, setCurrentPage] = useState(1);
@@ -90,6 +91,7 @@ const CreateProject = () => {
   return (
     <div className="fullHeightWithColorBg">
       <CreatorLayout />
+      <EnhancedBreadcrumb previousValue="Create Project" />
       {currentPage === 1 && (
         <ProjectTitle
           onNext={onNextPage}

@@ -31,7 +31,6 @@ const ProjectFiles = ({ onNext, onPrev, onFilesAccepted }) => {
   return (
     <Container
       style={{
-        paddingTop: "7rem",
         paddingBottom: "5rem",
       }}
     >

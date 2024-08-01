@@ -15,11 +15,7 @@ const AllProjects = ({ projects }) => {
   };
 
   return (
-    <Container
-      style={{
-        paddingTop: "6rem",
-      }}
-    >
+    <Container>
       <Card style={cardBody}>
         <Card.Header
           style={{

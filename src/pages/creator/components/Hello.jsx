@@ -1,18 +1,13 @@
-import React from "react";
 import { Container, Col } from "react-bootstrap";
-import { selectAuth } from "../../../../store/auth/reducer";
 import { useSelector } from "react-redux";
+import { selectAuth } from "../../../store/auth/reducer";
 
 const Hello = () => {
   const { user } = useSelector(selectAuth);
   const firstName = user?.firstName;
 
   return (
-    <Container
-      style={{
-        paddingTop: "6rem",
-      }}
-    >
+    <Container>
       <Col>
         <h2
           style={{
@@ -21,17 +16,20 @@ const Hello = () => {
             color: "#ffffff",
           }}
         >
-          Hello,{" "}
+          Hello,
           <span style={{ color: "#EEA20E" }}> {firstName || "Jackson"}</span>
         </h2>
-        <p
-          className="normalPTag"
-          style={{
-            fontWeight: "600",
-          }}
-        >
-          Welcome to the revolutionizing collaboration space
-        </p>
+        <Col lg={6}>
+          <p
+            className="normalPTag"
+            style={{
+              fontWeight: "600",
+            }}
+          >
+            Welcome to Buidl, your AI-powered workspace, and job marketplace.
+            Collaborate seamlessly! Find the right talents!
+          </p>
+        </Col>
       </Col>
     </Container>
   );

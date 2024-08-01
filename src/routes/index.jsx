@@ -56,19 +56,19 @@ const RootRouter = () => {
           element={<CreateProject />}
         />
 
-        {/* <Route exact path="/creator/projects" element={<Projects />} /> */}
+        <Route exact path="/creator/projects" element={<Projects />} />
         <Route
           exact
           path="/creator/project/details/:id"
           element={<ProjectDetails />}
         />
-        {/* <Route exact path="/creator/wallet" element={<Wallet />} /> */}
-        {/* <Route exact path="/creator/multi-ai" element={<MultiAiTools />} /> */}
-        {/* <Route
+        <Route exact path="/creator/wallet" element={<Wallet />} />
+        <Route exact path="/creator/multi-ai" element={<MultiAiTools />} />
+        <Route
           exact
           path="/creator/partner-directories"
           element={<PartnerDirectories />}
-        /> */}
+        />
       </Routes>
     </ScrollToTop>
   );

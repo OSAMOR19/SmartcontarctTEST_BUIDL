@@ -11,11 +11,7 @@ function AiTools() {
   };
 
   return (
-    <Container
-      style={{
-        paddingTop: "6rem",
-      }}
-    >
+    <Container>
       <Row>
         {Ai.map(({ image, name, description }, index) => (
           <Col xs={12} md={6} key={index} className="pb-4 pb-md-0">

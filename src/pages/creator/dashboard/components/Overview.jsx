@@ -14,7 +14,6 @@ const Overview = () => {
     backgroundColor: "#272A38",
     padding: "1rem 1.5rem",
     borderRadius: 14 + "px",
-    height: 100 + "%",
   };
 
   return (
@@ -26,23 +25,11 @@ const Overview = () => {
       <Row>
         <Col sm={12} lg={4}>
           <div
-            style={{
-              display: "flex",
-              flexDirection: "row",
-              gap: "1rem",
-              alignItems: "center",
-              ...cardBody,
-            }}
+            className="d-flex gap-3 align-items-center h-100"
+            style={cardBody}
           >
             <WalletIcon />
-            <div
-              style={{
-                display: "flex",
-                flexDirection: "column",
-                gap: 3,
-                alignItems: "flex-start",
-              }}
-            >
+            <div className="d-flex flex-column align-items-start gap-1">
               <span style={{ color: "#999999", fontSize: "1rem" }}>
                 Total Balance
               </span>
@@ -55,13 +42,7 @@ const Overview = () => {
                 }}
               >
                 <BuidlCoin />
-                <span
-                  style={{
-                    fontWeight: "700",
-                  }}
-                >
-                  0.00
-                </span>
+                <span className="fw-bold">0.00</span>
               </div>
               <span style={{ color: "#999999", fontSize: "1rem" }}>
                 ~ $ 0.00
@@ -71,10 +52,7 @@ const Overview = () => {
         </Col>
         <Col sm={12} lg={8} className="mt-3 mt-lg-0">
           <div style={cardBody}>
-            <div
-              // style={cardBody}
-              className="d-flex flex-column align-items-md-center justify-content-between flex-md-row"
-            >
+            <div className="d-flex flex-column align-items-md-center justify-content-between flex-md-row">
               <div>
                 <Image
                   src={images.createImage.src}
@@ -92,9 +70,8 @@ const Overview = () => {
                   }}
                 >
                   <h4
-                    className="bg-[#275444]"
+                    className="fw-bold"
                     style={{
-                      fontWeight: "700",
                       color: "#EEA20E",
                       fontSize: "clamp(0.8rem, 1.8rem + 1.5vw, 2rem)",
                     }}
@@ -102,12 +79,7 @@ const Overview = () => {
                     Create Project
                   </h4>
 
-                  <p
-                    className="normalPTag"
-                    style={{
-                      fontWeight: "500",
-                    }}
-                  >
+                  <p className="normalPTag fw-medium">
                     The world needs builders like you to bring the future a
                     thousand miles closer.
                   </p>
