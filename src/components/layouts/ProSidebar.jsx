@@ -26,7 +26,6 @@ const ProSidebar = ({
         style={{ marginBottom: "2rem", marginTop: "4rem" }}
         menuItemStyles={{
           button: ({ active }) => ({
-            opacity: active ? 100 : 0.5,
             color: active ? "#16192A" : "#FFFFFF",
             backgroundColor: active ? "#EEA20E" : "transparent",
             "&:hover": {

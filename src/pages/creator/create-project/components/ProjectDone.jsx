@@ -41,34 +41,18 @@ const ProjectDone = ({
     return <Success />;
   }
 
-  // const handleAddTeamCheckedChange = (e) => {
-  //   if (e.target.checked) {
-  //     setHireBuidlTalentsChecked(false);
-  //   }
-  //   setAddTeamChecked(e.target.checked);
-  // };
-
-  // const handleHireBuidlTalentsCheckedChange = (e) => {
-  //   if (e.target.checked) {
-  //     setAddTeamChecked(false);
-  //   }
-  //   setHireBuidlTalentsChecked(e.target.checked);
-  // };
-
-  const divStyle = {
-    display: "flex",
-    flexDirection: "column",
-    alignItems: "center",
-    justifyContent: "center",
+  const handleAddTeamCheckedChange = (e) => {
+    if (e.target.checked) {
+      setHireBuidlTalentsChecked(false);
+    }
+    setAddTeamChecked(e.target.checked);
   };
 
-  const nextContinue = {
-    display: "flex",
-    paddingTop: "3rem",
-    flexDirection: "row",
-    alignItems: "center",
-    flexWrap: "wrap",
-    justifyContent: "space-between",
+  const handleHireBuidlTalentsCheckedChange = (e) => {
+    if (e.target.checked) {
+      setAddTeamChecked(false);
+    }
+    setHireBuidlTalentsChecked(e.target.checked);
   };
 
   return (
@@ -86,7 +70,7 @@ const ProjectDone = ({
           borderRadius: 14 + "px",
         }}
       >
-        <div style={divStyle}>
+        <div className="d-flex flex-column align-items-center justify-content-center">
           <div style={{ width: 100 + "%" }} className="centerForm">
             <Row style={{ width: 100 + "%" }}>
               <Col xs={12} sm={12} md={12} lg={12}>
@@ -101,11 +85,7 @@ const ProjectDone = ({
               </Col>
             </Row>
 
-            <div
-              style={{
-                paddingTop: "3rem",
-              }}
-            >
+            <div className="pt-4">
               <h4
                 style={{
                   color: "#ffffff",
@@ -121,11 +101,7 @@ const ProjectDone = ({
                   gap: "2rem",
                 }}
               >
-                <Form
-                  style={{
-                    opacity: "0.4",
-                  }}
-                >
+                <Form style={{}}>
                   <Form.Check
                     type={"checkbox"}
                     label={
@@ -137,16 +113,12 @@ const ProjectDone = ({
                         Add Team
                       </span>
                     }
-                    // id={"addTeam"}
-                    // onChange={handleAddTeamCheckedChange}
-                    // checked={addTeamChecked}
+                    id={"addTeam"}
+                    onChange={handleAddTeamCheckedChange}
+                    checked={addTeamChecked}
                   />
                 </Form>
-                <Form
-                  style={{
-                    opacity: "0.4",
-                  }}
-                >
+                <Form style={{}}>
                   <Form.Check
                     type={"checkbox"}
                     label={
@@ -158,9 +130,9 @@ const ProjectDone = ({
                         Hire Buidl Talents
                       </span>
                     }
-                    // id={"hireBuidlTalents"}
-                    // onChange={handleHireBuidlTalentsCheckedChange}
-                    // checked={hireBuidlTalentsChecked}
+                    id={"hireBuidlTalents"}
+                    onChange={handleHireBuidlTalentsCheckedChange}
+                    checked={hireBuidlTalentsChecked}
                   />
                 </Form>
               </div>
@@ -246,7 +218,7 @@ const ProjectDone = ({
                   </p>
                 </div> */}
 
-            <div style={nextContinue} className="stepsTouch">
+            <div className="stepsTouch d-flex pt-5 align-items-center flex-wrap justify-content-between">
               <div
                 className=""
                 style={{

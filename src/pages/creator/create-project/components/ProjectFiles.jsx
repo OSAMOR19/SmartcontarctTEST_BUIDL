@@ -28,32 +28,6 @@ const ProjectFiles = ({ onNext, onPrev, onFilesAccepted }) => {
     </li>
   ));
 
-  const divStyle = {
-    display: "flex",
-    flexDirection: "column",
-    alignItems: "center",
-    justifyContent: "center",
-  };
-
-  const uploadStyle = {
-    display: "flex",
-    flexDirection: "column",
-    alignItems: "center",
-    justifyContent: "flex-start",
-    textAlign: "left",
-    width: "100%",
-    gap: 1 + "rem",
-    padding: 2 + "rem",
-  };
-
-  const nextContinue = {
-    display: "flex",
-    paddingTop: "3rem",
-    alignItems: "center",
-    flexWrap: "wrap",
-    justifyContent: "space-between",
-  };
-
   return (
     <Container
       style={{
@@ -69,7 +43,7 @@ const ProjectFiles = ({ onNext, onPrev, onFilesAccepted }) => {
           borderRadius: 14 + "px",
         }}
       >
-        <div style={divStyle}>
+        <div className="d-flex flex-column align-items-center justify-content-center">
           <div style={{ width: 100 + "%" }} className="centerForm">
             <Row style={{ width: 100 + "%" }}>
               <div>
@@ -130,7 +104,7 @@ const ProjectFiles = ({ onNext, onPrev, onFilesAccepted }) => {
               <section className="container">
                 <div {...getRootProps({ className: "dropzone" })}>
                   <input {...getInputProps()} />
-                  <div style={uploadStyle}>
+                  <div className="d-flex flex-column align-items-center text-start justify-content-start w-100 gap-2 p-4">
                     <span>
                       <UploadFiles />
                     </span>
@@ -162,14 +136,8 @@ const ProjectFiles = ({ onNext, onPrev, onFilesAccepted }) => {
               </section>
             </div>
 
-            <div style={nextContinue} className="stepsTouch">
-              <div
-                className=""
-                style={{
-                  display: "flex",
-                  gap: "1rem",
-                }}
-              >
+            <div className="stepsTouch d-flex pt-5 align-items-center flex-wrap justify-content-between">
+              <div className="d-flex gap-2">
                 <MediumOutlineButton
                   type="button"
                   text="Previous"

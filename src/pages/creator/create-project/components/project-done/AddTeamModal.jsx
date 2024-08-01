@@ -1,8 +1,8 @@
-import { useState } from "react";
 import Modal from "react-bootstrap/Modal";
-import Form from "react-bootstrap/Form";
 import InputLabel from "../../../../../components/ui/inputs/LabelInput";
 import MediumSolidButton from "../../../../../components/ui/buttons/MediumSolidButton";
+import LabelSelect from "../../../../../components/ui/selects/LabelSelect";
+import LabelTextarea from "../../../../../components/ui/textareas/LabelTextarea";
 
 const AddTeamModal = ({
   toggled,
@@ -16,34 +16,13 @@ const AddTeamModal = ({
 }) => {
   const handleClose = () => setToggled(false);
 
-  const inputBody = {
-    fontSize: "19px",
-    color: "#C8C8C8",
-    backgroundColor: "#404354",
-    fontWeight: "500",
-    borderColor: "#404354",
-    outline: "none",
-    boxShadow: "none",
-  };
+  const selectRole = [
+    { value: "", label: "Select Role" },
+    { value: "frontend developer", label: "Frontend Developer" },
+    { value: "backend developer", label: "Backend Developer" },
+    { value: "product designer", label: "Product Designer" },
+  ];
 
-  const textAreaBody = {
-    fontSize: "19px",
-    color: "#C8C8C8",
-    backgroundColor: "#404354",
-    fontWeight: "500",
-    border: "0",
-    width: 100 + "%",
-    padding: 1 + "rem",
-    borderRadius: 8 + "px",
-    outline: "none",
-    boxShadow: "none",
-  };
-
-  const divStyle = {
-    display: "flex",
-    flexDirection: "column",
-    gap: 1 + "rem",
-  };
   return (
     <div>
       <Modal show={toggled} onHide={handleClose} animation={false}>
@@ -53,10 +32,9 @@ const AddTeamModal = ({
         <Modal.Body>
           <p className="normalPTag">
             Woohoo, you are reading this text in a modal! Woohoo, you are
-            reading this text in a modal! Woohoo, you are reading this text in a
-            modal!
+            reading this text in a modal! Woohoo.
           </p>
-          <div style={divStyle}>
+          <div className="d-flex flex-column gap-3">
             <InputLabel
               label="Name"
               id="name"
@@ -68,50 +46,23 @@ const AddTeamModal = ({
               onChange={handleNameValueChange}
             />
             <div>
-              <label
-                htmlFor="selects"
-                className="normalPTag"
-                style={{
-                  fontWeight: "500",
-                  paddingBottom: "0.5rem",
-                }}
-              >
-                Role
-              </label>
-              <Form.Select
-                name="selects"
-                aria-label="Default select example"
-                style={inputBody}
+              <LabelSelect
+                label="Role"
+                id="role"
+                name="role"
+                options={selectRole}
                 value={selectedOption}
                 onChange={handleSelectChange}
-              >
-                <option>Select Role</option>
-                <option value="Frontend Developer">Frontend Developer</option>
-                <option value="Backend Developer">Backend Developer</option>
-                <option value="Product Designer">Product Designer</option>
-              </Form.Select>
+              />
             </div>
-            <div>
-              <label
-                htmlFor="jobDescription"
-                className="normalPTag"
-                style={{
-                  fontWeight: "500",
-                  paddingBottom: "0.5rem",
-                }}
-              >
-                Job Description{" "}
-              </label>
-              <textarea
-                value={textAreaValue}
-                onChange={handleTextAreaValueChange}
-                style={textAreaBody}
-                name="jobDescription"
-                id="jobDescription"
-                placeholder="Enter your job description"
-                rows={5}
-              ></textarea>
-            </div>
+            <LabelTextarea
+              label="Job Description"
+              value={textAreaValue}
+              onChange={handleTextAreaValueChange}
+              id="jobDescription"
+              placeholder="Enter your job description"
+              rows={3}
+            />
           </div>
         </Modal.Body>
         <Modal.Footer>

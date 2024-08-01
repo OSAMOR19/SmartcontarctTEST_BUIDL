@@ -16,25 +16,17 @@ const InputLabel = ({
     marginTop: "1.2rem",
   };
 
-  const inputBody = {
+  const styles = {
     fontSize: "19px",
     color: "#C8C8C8",
     backgroundColor: "#404354",
-    fontWeight: "500",
     borderColor: "#404354",
     outline: "none",
-    boxShadow: "none",
   };
 
   return (
     <Form.Group style={formDiv}>
-      <Form.Label
-        htmlFor={id}
-        className="normalPTag"
-        style={{
-          fontWeight: "500",
-        }}
-      >
+      <Form.Label htmlFor={id} className="normalPTag fw-medium">
         {label}
       </Form.Label>
       <Form.Control
@@ -45,8 +37,9 @@ const InputLabel = ({
         placeholder={placeholder}
         value={value}
         onChange={onChange}
-        style={inputBody}
+        style={styles}
         {...props}
+        className="fw-medium shadow-none"
       />
     </Form.Group>
   );

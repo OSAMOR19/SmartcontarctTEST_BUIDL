@@ -2,6 +2,7 @@ import { Container, Row, Col } from "react-bootstrap";
 import LineProgressOne from "../../../../assets/icons/line-progress1.svg";
 import InputLabel from "../../../../components/ui/inputs/LabelInput";
 import MediumSolidButton from "../../../../components/ui/buttons/MediumSolidButton";
+import LabelTextarea from "../../../../components/ui/textareas/LabelTextarea";
 
 const ProjectTitle = ({
   onNext,
@@ -10,35 +11,6 @@ const ProjectTitle = ({
   projectDescription,
   handleProjectDescriptionChange,
 }) => {
-  const divStyle = {
-    display: "flex",
-    flexDirection: "column",
-    alignItems: "center",
-    justifyContent: "center",
-  };
-
-  const nextContinue = {
-    display: "flex",
-    paddingTop: "3rem",
-    flexDirection: "row",
-    alignItems: "center",
-    flexWrap: "wrap",
-    justifyContent: "space-between",
-  };
-
-  const textAreaBody = {
-    fontSize: "19px",
-    color: "#C8C8C8",
-    backgroundColor: "#404354",
-    fontWeight: "500",
-    border: "0",
-    width: 100 + "%",
-    padding: 1 + "rem",
-    borderRadius: 8 + "px",
-    outline: "none",
-    boxShadow: "none",
-  };
-
   return (
     <Container
       style={{
@@ -55,7 +27,7 @@ const ProjectTitle = ({
           borderRadius: 14 + "px",
         }}
       >
-        <div style={divStyle}>
+        <div className="d-flex flex-column align-items-center justify-content-center">
           <div style={{ width: 100 + "%" }} className="centerForm">
             <div>
               <h2 className="strongH2Tag">Project Details</h2>
@@ -85,19 +57,16 @@ const ProjectTitle = ({
                 />
               </div>
 
-              <div>
-                <textarea
-                  value={projectDescription}
-                  onChange={handleProjectDescriptionChange}
-                  style={textAreaBody}
-                  name="jobDescription"
-                  id="jobDescription"
-                  placeholder="Enter your project description"
-                  rows={3}
-                ></textarea>
-              </div>
+              <LabelTextarea
+                label="Project Description"
+                value={projectDescription}
+                onChange={handleProjectDescriptionChange}
+                id="jobDescription"
+                placeholder="Enter your project description"
+                rows={3}
+              />
             </div>
-            <div style={nextContinue}>
+            <div className="d-flex pt-5 align-items-center flex-wrap justify-content-between">
               <MediumSolidButton
                 type="button"
                 text="Next"

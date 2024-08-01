@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { Image, Navbar, Container } from "react-bootstrap";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import Nav from "react-bootstrap/Nav";
@@ -84,7 +84,6 @@ const Header = ({ to, toggled, setToggled }) => {
                     <NavDropdown.Item
                       as="span"
                       style={{
-                        opacity: "0.5",
                         cursor: "pointer",
                       }}
                     >

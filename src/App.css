@@ -356,7 +356,7 @@ div .myStyleCheckbox form .form-check-input {
     width: 0.05rem !important;
     height: 0.05rem !important;
     --bs-btn-close-focus-shadow: none !important;
-    background: #ffffff url(./assets/images/close-modal.png) !important;
+    background: #ffffff url(./assets/icons/close-modal-svg.svg) !important;
     padding: 0.8rem !important;
     background-repeat: no-repeat !important;
     background-position: center !important;
