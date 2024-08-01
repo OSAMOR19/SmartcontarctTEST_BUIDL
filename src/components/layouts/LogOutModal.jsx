@@ -16,16 +16,22 @@ const LogOutModal = ({ showLogout, setShowLogout }) => {
     navigate("/auth/login");
   };
 
+  const bodyStyles = {
+    backgroundColor: "rgba(39, 42, 56, 0.79)",
+    display: `${showLogout ? "block" : "none"}`,
+    zIndex: "50",
+  };
+  
+  const divStyles = {
+    padding: "2rem",
+    background: "#21232F",
+    borderRadius: "8.43px",
+    maxWidth: "457px",
+    margin: "auto",
+  };
+
   return (
-    <Container
-      fluid
-      className=" position-fixed"
-      style={{
-        backgroundColor: "rgba(39, 42, 56, 0.79)",
-        display: `${showLogout ? "block" : "none"}`,
-        zIndex: "50",
-      }}
-    >
+    <Container fluid className=" position-fixed" style={bodyStyles}>
       <section
         className="flex justify-content-center"
         style={{
@@ -35,13 +41,7 @@ const LogOutModal = ({ showLogout, setShowLogout }) => {
       >
         <div
           className="d-flex flex-column align-items-center gap-4"
-          style={{
-            padding: "2rem",
-            background: "#21232F",
-            borderRadius: "8.43px",
-            maxWidth: "457px",
-            margin: "auto",
-          }}
+          style={divStyles}
         >
           <div>
             <LogOutCaution />
@@ -49,19 +49,13 @@ const LogOutModal = ({ showLogout, setShowLogout }) => {
           <h5
             style={{
               color: "#ffffff",
-              weigh: "900",
             }}
+            className="fw-bold"
           >
             Are you sure you want to Log out
           </h5>
           <div>
-            <div
-              className=""
-              style={{
-                display: "flex",
-                gap: "1rem",
-              }}
-            >
+            <div className="d-flex gap-3">
               <MediumOutlineButton
                 type="button"
                 text="No"

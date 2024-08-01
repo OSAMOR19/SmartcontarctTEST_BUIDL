@@ -4,14 +4,12 @@ import Modal from "react-bootstrap/Modal";
 import images from "../../constants/images";
 
 const SearchModal = ({ show, handleClose }) => {
-  const inputbodyx = {
+  const inputStyles = {
     backgroundColor: "#404354",
     color: "#C8C8C8",
     borderColor: "#404354",
     outline: "none",
-    boxShadow: "none",
     borderRadius: 2 + "rem",
-    width: 100 + "%",
   };
 
   return (
@@ -31,13 +29,14 @@ const SearchModal = ({ show, handleClose }) => {
         <p style={{ color: "#999999", fontSize: "0.8rem" }}>
           We have multi Ai tools click on any one to use or search
         </p>
-        <div style={{ display: "flex", flexDirection: "row", gap: 6 }}>
+        <div style={{ gap: 6 }} className="d-flex">
           <Form style={{ width: 100 + "%" }}>
             <InputGroup size="lg">
               <FormControl
-                style={inputbodyx}
+                style={inputStyles}
                 type="text"
                 placeholder="Search"
+                className="w-100 shadow-none"
               />
             </InputGroup>
           </Form>

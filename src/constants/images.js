@@ -6,6 +6,7 @@ import CreateImage from "../assets/images/create-img.png";
 import Charles from "../assets/images/charles.png";
 import James from "../assets/images/james.png";
 import NoTeam from "../assets/images/0-team.png";
+import PlusOneTeam from "../assets/images/1-team.png";
 
 export const verificationImage = {
   src: VerificationImage,
@@ -47,6 +48,11 @@ export const noTeam = {
   alt: "0 team",
 };
 
+export const plusOneTeam = {
+  src: PlusOneTeam,
+  alt: "Plus One team",
+};
+
 const images = {
   verificationImage,
   authImage,
@@ -56,6 +62,7 @@ const images = {
   charlesImage,
   jamesImage,
   noTeam,
+  plusOneTeam,
 };
 
 export default images;

@@ -109,12 +109,6 @@ const RegisterForm = () => {
   }
 
   const sectionStyle = {
-    display: "flex",
-    flexDirection: "column",
-    alignItems: "center",
-    justifyContent: "flex-start",
-    textAlign: "left",
-    width: "100%",
     paddingBottom: "5rem",
   };
 
@@ -125,7 +119,10 @@ const RegisterForm = () => {
       style={{ backgroundColor: "#272A38", overflowX: "hidden" }}
     >
       <StickyNavbar />
-      <section className="firstSectionPadding" style={sectionStyle}>
+      <section
+        className="firstSectionPadding w-100 d-flex flex-column align-items-center justify-content-start text-start"
+        style={sectionStyle}
+      >
         <div>
           <h2 className="strongH2Tag">Register as a builder</h2>
           <p className="normalPTag">
@@ -230,12 +227,9 @@ const RegisterForm = () => {
 
             <div
               style={{
-                paddingTop: 1.5 + "rem",
-                display: "flex",
-                flexDirection: "column",
-                gap: 1 + "rem",
                 maxWidth: 25 + "rem",
               }}
+              className="pt-4 d-flex flex-column gap-3"
             >
               <Row>
                 <Checkbox
@@ -273,9 +267,9 @@ const RegisterForm = () => {
                         <span
                           style={{
                             color: "#EEA20E",
-                            textDecoration: "underline",
                             cursor: "pointer",
                           }}
+                          className="text-decoration-underline"
                         >
                           Privacy Policy
                         </span>
@@ -285,7 +279,6 @@ const RegisterForm = () => {
                         <span
                           style={{
                             color: "#EEA20E",
-                            textDecoration: "underline",
                             cursor: "pointer",
                           }}
                         >
@@ -328,9 +321,9 @@ const RegisterForm = () => {
                 <span
                   style={{
                     color: "#EEA20E",
-                    textDecoration: "underline",
                     cursor: "pointer",
                   }}
+                  className="text-decoration-underline"
                 >
                   Login here,
                 </span>

@@ -29,12 +29,12 @@ const Header = ({ to, toggled, setToggled }) => {
       <LogOutModal showLogout={showLogout} setShowLogout={setShowLogout} />
       <Navbar
         fixed="top"
-        className="Header"
-        style={{ backgroundColor: "#272A38", width: 100 + "%" }}
+        className="Header w-100"
+        style={{ backgroundColor: "#272A38" }}
       >
         <Container>
           <Navbar.Brand>
-            <div style={{ display: "flex", gap: 10 }}>
+            <div style={{ gap: 10 }} className="d-flex">
               <Hamburger
                 style={{ width: "2rem", cursor: "pointer" }}
                 onClick={() => setToggled(!toggled)}
@@ -44,17 +44,17 @@ const Header = ({ to, toggled, setToggled }) => {
           </Navbar.Brand>
           <Navbar.Toggle />
           <Navbar.Collapse className="justify-content-end">
-            <div style={{ display: "flex", gap: 10, alignItems: "center" }}>
+            <div style={{ gap: 10 }} className="d-flex align-items-center">
               <Search onClick={handleShowModal} style={{ cursor: "pointer" }} />
               <SearchModal show={showModal} handleClose={handleCloseModal} />
 
               <Notification />
 
-              <div style={{ display: "flex", gap: 7, alignItems: "center" }}>
+              <div style={{ gap: 7 }} className="d-flex align-items-center">
                 <Nav>
                   <NavDropdown
                     title={
-                      <div style={{ display: "flex", alignItems: "center" }}>
+                      <div className="d-flex align-align-items-center">
                         <Image
                           src={images.profileAvatar.src}
                           alt={images.profileAvatar.alt}
@@ -69,9 +69,9 @@ const Header = ({ to, toggled, setToggled }) => {
                             style={{
                               fontSize: "1.12rem",
                               color: "#FFFFFF",
-                              fontWeight: "500",
                               marginTop: "-5px",
                             }}
+                            className="fw-medium"
                           >
                             {username || " CharlesDesign"}
                           </span>

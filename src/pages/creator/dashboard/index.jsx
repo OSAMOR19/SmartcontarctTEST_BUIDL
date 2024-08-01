@@ -11,40 +11,56 @@ import CreatorSpinner from "../components/atoms/CreatorSpinner";
 import EnhancedBreadcrumb from "../components/layouts/EnhancedBreadcrumb ";
 
 const CreatorDashboard = () => {
-  const { allProjects, requestStatus } = useSelector(selectProject);
+  // const { allProjects, requestStatus } = useSelector(selectProject);
 
-  const firstThreeProjects = allProjects
-    ?.slice()
-    .sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt))
-    .slice(0, 3);
+  // const firstThreeProjects = allProjects
+  //   ?.slice()
+  //   .sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt))
+  //   .slice(0, 3);
 
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
 
-  useEffect(() => {
-    dispatch(getAllProjects());
-  }, [dispatch]);
+  // useEffect(() => {
+  //   dispatch(getAllProjects());
+  // }, [dispatch]);
 
-  if (requestStatus === "loading") {
-    return <CreatorSpinner />;
-  }
+  // if (requestStatus === "loading") {
+  //   return <CreatorSpinner />;
+  // }
 
   return (
     <div className="fullHeightWithColorBg">
       <CreatorLayout />
       <EnhancedBreadcrumb currentValue={"Dashboard"} />
       <Hello />
-      {allProjects && allProjects.length > 0 ? (
-        <>
+      {/* {allProjects && allProjects.length > 0 ? (
+        <> */}
           <Overview />
-          <MyProjects projects={firstThreeProjects} />
+          <MyProjects />
           <Transaction />
-        </>
+        {/* </>
       ) : (
-        <>
-          <CreateProject />
-        </>
-      )}
+        <> */}
+          {/* <CreateProject /> */}
+        {/* </>
+      )} */}
     </div>
+    // <div className="fullHeightWithColorBg">
+    //   <CreatorLayout />
+    //   <EnhancedBreadcrumb currentValue={"Dashboard"} />
+    //   <Hello />
+    //   {allProjects && allProjects.length > 0 ? (
+    //     <>
+    //       <Overview />
+    //       <MyProjects projects={firstThreeProjects} />
+    //       <Transaction />
+    //     </>
+    //   ) : (
+    //     <>
+    //       <CreateProject />
+    //     </>
+    //   )}
+    // </div>
   );
 };
 

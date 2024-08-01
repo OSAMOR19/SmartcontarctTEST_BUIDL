@@ -18,7 +18,7 @@ const ProSidebar = ({
       toggled={toggled}
       breakPoint="always"
     >
-      <div style={{ paddingTop: 1.5 + "rem", paddingLeft: 1.6 + "rem" }}>
+      <div className="pt-4 ps-4">
         <LogoText to={"/dashboard"} />
       </div>
       <Menu

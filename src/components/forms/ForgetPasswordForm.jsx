@@ -19,19 +19,16 @@ const ForgetPasswordForm = () => {
   };
 
   const sectionStyle = {
-    display: "flex",
-    flexDirection: "column",
-    alignItems: "center",
-    justifyContent: "flex-start",
-    textAlign: "left",
-    width: "100%",
     paddingBottom: 5 + "rem",
   };
 
   return (
     <Container fluid className="App" style={{ backgroundColor: "#272A38" }}>
       <StickyNavbar />
-      <section className="firstSectionPadding" style={sectionStyle}>
+      <section
+        className="firstSectionPadding w-100 d-flex flex-column align-items-center justify-content-start text-start"
+        style={sectionStyle}
+      >
         <div>
           <h2 className="strongH2Tag">Forget Password</h2>
           <p className="normalPTag">
@@ -54,11 +51,7 @@ const ForgetPasswordForm = () => {
 
             <br />
             <br />
-            <FullSolidButton
-              type="submit"
-              text="Send"
-              disabled={!email}
-            />
+            <FullSolidButton type="submit" text="Send" disabled={!email} />
             <br />
             <br />
             <span

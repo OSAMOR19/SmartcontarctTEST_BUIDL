@@ -5,17 +5,12 @@ const Checkbox = ({ type, name, label, checked, onChange, ...props }) => {
   return (
     <Form.Check
       id={name}
-      style={{
-        display: "flex",
-        gap: "1rem",
-        alignItems: "center",
-        marginLeft: 1 + "rem",
-      }}
       type="checkbox"
       name={name}
       label={label}
       checked={checked}
       onChange={onChange}
+      className="d-flex gap-3 align-items-center ms-3"
       {...props}
     />
   );

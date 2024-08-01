@@ -29,22 +29,7 @@ function InputOtp() {
   };
 
   const sectionStyle = {
-    display: "flex",
-    flexDirection: "column",
-    alignItems: "center",
-    justifyContent: "flex-start",
-    gap: 0.5 + "rem",
-    textAlign: "center",
-    width: "100%",
-    paddingBottom: 5 + "rem",
-  };
-
-  const divStyle = {
-    display: "flex",
-    flexDirection: "row",
-    gap: 3,
-    justifyContent: "center",
-    alignItems: "center",
+    paddingBottom: "5rem",
   };
 
   if (requestStatus === "loading") {
@@ -54,8 +39,11 @@ function InputOtp() {
   return (
     <Container fluid className="App" style={{ backgroundColor: "#272A38" }}>
       <StickyNavbar />
-      <section className="firstSectionPadding" style={sectionStyle}>
-        <div style={divStyle}>
+      <section
+        className="firstSectionPadding w-100 d-flex flex-column align-items-center justify-content-start text-start"
+        style={sectionStyle}
+      >
+        <div className="d-flex gap-5 justify-content-center align-items-center">
           <Image
             src={images.authImage.src}
             alt={images.authImage.alt}
@@ -80,8 +68,8 @@ function InputOtp() {
           style={{
             color: "#ffffff",
             fontSize: "clamp(1rem, 0.87rem + 1.5vw, 1.3rem)",
-            fontWeight: "700",
           }}
+          className="fw-bold"
         >
           Enter 4 digit OTP code
         </span>

@@ -24,30 +24,7 @@ const OtpInputResend = () => {
   };
 
   const sectionStyle = {
-    display: "flex",
-    flexDirection: "column",
-    alignItems: "center",
-    justifyContent: "flex-start",
-    gap: 0.5 + "rem",
-    textAlign: "center",
-    width: "100%",
     paddingBottom: 5 + "rem",
-  };
-
-  const divStyle = {
-    display: "flex",
-    flexDirection: "row",
-    gap: 3,
-    justifyContent: "center",
-    alignItems: "center",
-  };
-
-  const otpDivStyle = {
-    display: "flex",
-    flexDirection: "column",
-    gap: 2 + "rem",
-    justifyContent: "center",
-    alignItems: "center",
   };
 
   if (requestStatus === "loading") {
@@ -57,8 +34,11 @@ const OtpInputResend = () => {
   return (
     <Container fluid className="App" style={{ backgroundColor: "#272A38" }}>
       <StickyNavbar />
-      <section className="firstSectionPadding" style={sectionStyle}>
-        <div style={divStyle}>
+      <section
+        className="firstSectionPadding w-100 d-flex flex-column align-items-center justify-content-start text-start"
+        style={sectionStyle}
+      >
+        <div className="d-flex gap-5 justify-content-center align-items-center">
           <Image
             src={images.authImage.src}
             alt={images.authImage.alt}
@@ -83,8 +63,8 @@ const OtpInputResend = () => {
           style={{
             color: "#ffffff",
             fontSize: "clamp(1rem, 0.87rem + 1.5vw, 1.3rem)",
-            fontWeight: "700",
           }}
+          className="fw-bold"
         >
           Enter 4 digit OTP code
         </span>
@@ -95,13 +75,13 @@ const OtpInputResend = () => {
             marginTop: "2rem",
           }}
         >
-          <div style={otpDivStyle}>
+          <div className="d-flex flex-column gap-4 justify-content-center align-items-center">
             <OtpInput
               value={otp}
               onChange={setOtp}
               numInputs={4}
               onPaste={handlePaste}
-              renderSeparator={<span>-</span>}
+              renderSeparator={<span>---</span>}
               renderInput={(props) => <input {...props} />}
             />
             <span

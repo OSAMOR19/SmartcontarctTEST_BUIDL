@@ -23,20 +23,16 @@ const OtpSent = () => {
   };
 
   const sectionStyle = {
-    display: "flex",
-    flexDirection: "column",
-    alignItems: "center",
-    justifyContent: "flex-start",
-    gap: 0.5 + "rem",
-    textAlign: "center",
-    width: "100%",
     paddingBottom: 5 + "rem",
   };
 
   return (
     <Container fluid className="App" style={{ backgroundColor: "#272A38" }}>
       <StickyNavbar />
-      <section className="firstSectionPadding" style={sectionStyle}>
+      <section
+        className="firstSectionPadding w-100 d-flex flex-column align-items-center justify-content-start text-start"
+        style={sectionStyle}
+      >
         <Image
           src={images.verificationImage.src}
           alt={images.verificationImage.alt}
@@ -51,12 +47,7 @@ const OtpSent = () => {
         >
           Verification Code Sent
         </h2>
-        <p
-          className="normalPTag"
-          style={{
-            fontWeight: "600",
-          }}
-        >
+        <p className="normalPTag fw-semibold">
           We have sent a Verification Code to <br />
           <span style={{ color: "#B6B6B6", fontWeight: "500" }}>{email}</span>
         </p>
@@ -65,19 +56,14 @@ const OtpSent = () => {
           text="I’ve received the code"
           onClick={handleButtonClick}
         />
-        <span
-          style={{
-            paddingTop: "1rem",
-          }}
-          className="normalPTag"
-        >
+        <span className="normalPTag pt-3">
           Didn’t receive the email ? <br />
           <span
             style={{
               color: "#EEA20E",
-              textDecoration: "underline",
               cursor: "pointer",
             }}
+            className="text-text-decoration-underline"
             onClick={handleResendOtp}
           >
             Resend here

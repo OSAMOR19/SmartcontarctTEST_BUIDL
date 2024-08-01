@@ -53,19 +53,16 @@ const ResetPasswordForm = () => {
   };
 
   const sectionStyle = {
-    display: "flex",
-    flexDirection: "column",
-    alignItems: "center",
-    justifyContent: "flex-start",
-    textAlign: "left",
-    width: "100%",
-    paddingBottom: 5 + "rem",
+    paddingBottom: "5rem",
   };
 
   return (
     <Container fluid className="App" style={{ backgroundColor: "#272A38" }}>
       <StickyNavbar />
-      <section className="firstSectionPadding" style={sectionStyle}>
+      <section
+        className="firstSectionPadding w-100 d-flex flex-column align-items-center justify-content-start text-start"
+        style={sectionStyle}
+      >
         <div>
           <h2 className="strongH2Tag">Reset Password</h2>
           <p className="normalPTag">
@@ -89,12 +86,7 @@ const ResetPasswordForm = () => {
                 ""
               ) : (
                 <div style={{ paddingTop: "0.5rem" }}>
-                  <span
-                    className="normalPTag"
-                    style={{
-                      fontWeight: "500",
-                    }}
-                  >
+                  <span className="normalPTag fw-medium">
                     Must Contain at least
                   </span>
                 </div>
@@ -124,12 +116,7 @@ const ResetPasswordForm = () => {
                 {!passwordMatch ? (
                   ""
                 ) : (
-                  <span
-                    className="normalPTag"
-                    style={{
-                      fontWeight: "500",
-                    }}
-                  >
+                  <span className="normalPTag fw-medium">
                     Password does not match
                   </span>
                 )}
