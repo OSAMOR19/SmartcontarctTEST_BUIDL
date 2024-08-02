@@ -67,11 +67,10 @@ const Header = ({ to, toggled, setToggled }) => {
                           </span>
                           <span
                             style={{
-                              fontSize: "1.12rem",
                               color: "#FFFFFF",
                               marginTop: "-5px",
                             }}
-                            className="fw-medium"
+                            className="fs-5 fw-medium"
                           >
                             {username || " CharlesDesign"}
                           </span>

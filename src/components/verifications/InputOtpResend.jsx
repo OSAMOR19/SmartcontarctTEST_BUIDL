@@ -38,7 +38,7 @@ const OtpInputResend = () => {
         className="firstSectionPadding w-100 d-flex flex-column align-items-center justify-content-start text-start"
         style={sectionStyle}
       >
-        <div className="d-flex gap-5 justify-content-center align-items-center">
+        <div className="d-flex gap-2 justify-content-center align-items-center">
           <Image
             src={images.authImage.src}
             alt={images.authImage.alt}
@@ -85,11 +85,9 @@ const OtpInputResend = () => {
               renderInput={(props) => <input {...props} />}
             />
             <span
-              className="normalPTag"
+              className="normalPTag fs-5 text-decoration-underline"
               style={{
-                fontSize: "1.1rem",
                 color: "#EEA20E",
-                textDecoration: "underline",
                 cursor: "pointer",
               }}
               onClick={handleResendOtp}

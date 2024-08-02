@@ -62,7 +62,10 @@ const ForgetPasswordForm = () => {
             >
               Remember Password ?{" "}
               <Link to="/">
-                <span style={{ color: "#EEA20E", textDecoration: "underline" }}>
+                <span
+                  style={{ color: "#EEA20E" }}
+                  className="text-decoration-underline"
+                >
                   Sign in here
                 </span>
               </Link>

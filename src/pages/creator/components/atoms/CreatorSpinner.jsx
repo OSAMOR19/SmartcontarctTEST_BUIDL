@@ -3,6 +3,14 @@ import Spinner from "react-bootstrap/Spinner";
 import CreatorLayout from "../layouts";
 
 const CreatorSpinner = () => {
+  const divStyles = {
+    position: "absolute",
+    top: "50%",
+    left: "50%",
+    transform: "translate(-50%, -50%)",
+    color: "#E0DDDD",
+  };
+
   return (
     <Container
       fluid
@@ -11,17 +19,8 @@ const CreatorSpinner = () => {
     >
       <CreatorLayout />
       <div
-        style={{
-          position: "absolute",
-          top: "50%",
-          left: "50%",
-          transform: "translate(-50%, -50%)",
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-          gap: "0.5rem",
-          color: "#E0DDDD",
-        }}
+        style={divStyles}
+        className="d-flex flex-column align-items-center gap-2"
       >
         <Spinner animation="border" role="status">
           <span className="visually-hidden">Loading...</span>

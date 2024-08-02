@@ -281,6 +281,7 @@ const RegisterForm = () => {
                             color: "#EEA20E",
                             cursor: "pointer",
                           }}
+                          className="text-decoration-underline"
                         >
                           Terms and conditions.
                         </span>

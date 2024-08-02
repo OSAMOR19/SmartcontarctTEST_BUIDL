@@ -8,20 +8,20 @@ const CreateProject = () => {
   const handleCreateProject = () => {
     navigate("/creator/create-project");
   };
+
+  const bodyStyles = {
+    paddingTop: "2rem",
+    paddingBottom: "5rem",
+  };
+
+  const colStyles = {
+    background: "#272A38",
+    padding: "2rem",
+    borderRadius: 14 + "px",
+  };
   return (
-    <Container
-      style={{
-        paddingTop: "2rem",
-        paddingBottom: "5rem",
-      }}
-    >
-      <Col
-        style={{
-          background: "#272A38",
-          padding: "2rem",
-          borderRadius: 14 + "px",
-        }}
-      >
+    <Container style={bodyStyles}>
+      <Col style={colStyles}>
         <div className="d-flex flex-column align-align-items-center justify-content-center">
           <Image
             src={images.createImage.src}

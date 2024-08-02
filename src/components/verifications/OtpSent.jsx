@@ -30,7 +30,7 @@ const OtpSent = () => {
     <Container fluid className="App" style={{ backgroundColor: "#272A38" }}>
       <StickyNavbar />
       <section
-        className="firstSectionPadding w-100 d-flex flex-column align-items-center justify-content-start text-start"
+        className="firstSectionPadding w-100 d-flex flex-column gap-2 align-items-center justify-content-start text-center"
         style={sectionStyle}
       >
         <Image
@@ -49,7 +49,12 @@ const OtpSent = () => {
         </h2>
         <p className="normalPTag fw-semibold">
           We have sent a Verification Code to <br />
-          <span style={{ color: "#B6B6B6", fontWeight: "500" }}>{email}</span>
+          <span
+            style={{ color: "#B6B6B6", fontWeight: "500" }}
+            className="fw-medium"
+          >
+            {email}
+          </span>
         </p>
         <MediumSolidButton
           type="button"
@@ -63,7 +68,7 @@ const OtpSent = () => {
               color: "#EEA20E",
               cursor: "pointer",
             }}
-            className="text-text-decoration-underline"
+            className="text-decoration-underline"
             onClick={handleResendOtp}
           >
             Resend here

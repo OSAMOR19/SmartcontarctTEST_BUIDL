@@ -20,12 +20,7 @@ const Hello = () => {
           <span style={{ color: "#EEA20E" }}> {firstName || "Jackson"}</span>
         </h2>
         <Col lg={6}>
-          <p
-            className="normalPTag"
-            style={{
-              fontWeight: "600",
-            }}
-          >
+          <p className="normalPTag fw-semibold">
             Welcome to Buidl, your AI-powered workspace, and job marketplace.
             Collaborate seamlessly! Find the right talents!
           </p>

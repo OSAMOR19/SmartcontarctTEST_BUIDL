@@ -8,25 +8,19 @@ const EnhancedBreadcrumb = ({ currentValue, previousValue }) => {
   const previousPage = () => {
     navigate(-1);
   };
+  const bodyStyles = {
+    paddingTop: "6rem",
+    paddingBottom: "1rem",
+  };
   return (
     <>
       {currentValue && (
-        <Container
-          style={{
-            paddingTop: "6rem",
-            paddingBottom: "1rem",
-          }}
-        >
+        <Container style={bodyStyles}>
           <div className="normalPTag fs-4 fw-fw-fw-medium">{currentValue}</div>
         </Container>
       )}
       {previousValue && (
-        <Container
-          style={{
-            paddingTop: "6rem",
-            paddingBottom: "1rem",
-          }}
-        >
+        <Container style={bodyStyles}>
           <Col className="d-flex align-items-center gap-2">
             <div
               className=""
