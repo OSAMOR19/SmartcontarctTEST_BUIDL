@@ -9,6 +9,12 @@ const MyProjects = () => {
     borderRadius: 14 + "px",
   };
 
+  const headStyles = {
+    padding: "1rem 1rem",
+    borderBottom: "2px solid #565F87",
+    color: "#FFFFFF",
+  };
+
   return (
     <Container
       style={{
@@ -17,11 +23,7 @@ const MyProjects = () => {
     >
       <Card style={cardBody}>
         <Card.Header
-          style={{
-            padding: "1rem 1rem",
-            borderBottom: "2px solid #565F87",
-            color: "#FFFFFF",
-          }}
+          style={headStyles}
           className="d-flex justify-content-between align-content-center"
         >
           <h4

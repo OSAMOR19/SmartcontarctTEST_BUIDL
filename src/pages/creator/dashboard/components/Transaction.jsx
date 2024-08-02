@@ -3,17 +3,16 @@ import Empty from "../../../../assets/icons/empty.svg";
 import MediumSolidButton from "../../../../components/ui/buttons/MediumSolidButton";
 
 const Transaction = () => {
+  const bodyStyles = {
+    paddingTop: "2rem",
+    paddingBottom: "5rem",
+  };
   const cardBody = {
     backgroundColor: "#272A38",
     borderRadius: 14 + "px",
   };
   return (
-    <Container
-      style={{
-        paddingTop: "2rem",
-        paddingBottom: "5rem",
-      }}
-    >
+    <Container style={bodyStyles}>
       <Col style={cardBody}>
         <div
           style={{
@@ -49,12 +48,7 @@ const Transaction = () => {
             No Transaction
           </h2>
           <Col lg={6} className="text-center">
-            <p
-              className="normalPTag"
-              style={{
-                fontWeight: "600",
-              }}
-            >
+            <p className="normalPTag fw-medium">
               No transaction has been made at the moment, click on the button
               below to fund wallet
             </p>
