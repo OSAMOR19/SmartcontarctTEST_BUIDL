@@ -14,31 +14,28 @@ const Success = () => {
     navigate("/creator/dashboard");
   };
 
+  const bodyStyles = {
+    backgroundColor: "rgba(39, 42, 56, 0.79)",
+    position: "fixed",
+    margin: "auto",
+    minHeight: "100vh",
+    paddingTop: "7rem",
+  };
+
+  const divStyles = {
+    margin: "auto",
+    padding: "5rem 3rem",
+    maxWidth: "350px",
+    borderRadius: "13px",
+    background: "#1A1C28",
+    color: "#EEA20E",
+  };
+
   return (
-    <Container
-      fluid
-      style={{
-        backgroundColor: "rgba(39, 42, 56, 0.79)",
-        position: "fixed",
-        margin: "auto",
-        minHeight: "100vh",
-        paddingTop: "7rem",
-      }}
-    >
+    <Container fluid style={bodyStyles}>
       <div
-        style={{
-          margin: "auto",
-          padding: "5rem 3rem",
-          maxWidth: "350px",
-          textAlign: "center",
-          borderRadius: "13px",
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-          gap: "0.5rem",
-          background: "#1A1C28",
-          color: "#EEA20E",
-        }}
+        style={divStyles}
+        className="text-center d-flex flex-column align-items-center gap-2"
       >
         <div>
           <Done />
@@ -51,8 +48,8 @@ const Success = () => {
           <h4
             style={{
               color: "#FFFF",
-              fontWeight: "500",
             }}
+            className="fs-5 fw-semibold"
           >
             Project Created Successfully
           </h4>

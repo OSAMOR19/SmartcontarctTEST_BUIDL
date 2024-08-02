@@ -11,21 +11,19 @@ const ProjectTitle = ({
   projectDescription,
   handleProjectDescriptionChange,
 }) => {
+  const bodyStyles = {
+    paddingBottom: "5rem",
+  };
+
+  const colStyles = {
+    background: "#272A38",
+    padding: "1rem",
+    paddingBottom: "10rem",
+    borderRadius: 14 + "px",
+  };
   return (
-    <Container
-      style={{
-        paddingBottom: "5rem",
-      }}
-    >
-      <Col
-        style={{
-          background: "#272A38",
-          padding: "1rem",
-          paddingTop: "1rem",
-          paddingBottom: "10rem",
-          borderRadius: 14 + "px",
-        }}
-      >
+    <Container style={bodyStyles}>
+      <Col style={colStyles}>
         <div className="d-flex flex-column align-items-center justify-content-center">
           <div style={{ width: 100 + "%" }} className="centerForm">
             <div>
@@ -39,11 +37,7 @@ const ProjectTitle = ({
             </div>
 
             <div className="d-flex flex-column gap-4">
-              <div
-                style={{
-                  paddingTop: "2rem",
-                }}
-              >
+              <div className="pt-4">
                 <InputLabel
                   label="Project Title"
                   id="projectTitle"

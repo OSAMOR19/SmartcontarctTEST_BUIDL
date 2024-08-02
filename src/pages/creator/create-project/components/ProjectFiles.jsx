@@ -28,20 +28,20 @@ const ProjectFiles = ({ onNext, onPrev, onFilesAccepted }) => {
     </li>
   ));
 
+  const bodyStyles = {
+    paddingBottom: "5rem",
+  };
+
+  const colStyles = {
+    background: "#272A38",
+    padding: "1rem",
+    paddingBottom: "10rem",
+    borderRadius: 14 + "px",
+  };
+
   return (
-    <Container
-      style={{
-        paddingBottom: "5rem",
-      }}
-    >
-      <Col
-        style={{
-          background: "#272A38",
-          padding: "1rem",
-          paddingBottom: "10rem",
-          borderRadius: 14 + "px",
-        }}
-      >
+    <Container style={bodyStyles}>
+      <Col style={colStyles}>
         <div className="d-flex flex-column align-items-center justify-content-center">
           <div style={{ width: 100 + "%" }} className="centerForm">
             <Row style={{ width: 100 + "%" }}>
@@ -56,34 +56,20 @@ const ProjectFiles = ({ onNext, onPrev, onFilesAccepted }) => {
               </div>
             </Row>
 
-            <div
-              style={{
-                paddingTop: "2rem",
-                color: "white",
-              }}
-            >
+            <div className="pt-4">
               <h4
-                className="normalPTag"
+                className="normalPTag fw-medium"
                 style={{
                   padding: "1.2rem 0rem",
-                  fontWeight: "500",
                   fontSize: "clamp(0.8rem, 0.8rem + 1.5vw, 1.5rem)",
                 }}
               >
                 Upload Project Files
               </h4>
               <div className="normalPTag">
-                <div
-                  style={{
-                    fontWeight: "500",
-                  }}
-                >
-                  <Caution />{" "}
-                  <span
-                    style={{
-                      paddingInlineStart: "0.2rem",
-                    }}
-                  >
+                <div className="fw-medium">
+                  <Caution />
+                  <span className="ps-1">
                     Upload or Drag and drop the following files
                   </span>
                 </div>
@@ -95,11 +81,7 @@ const ProjectFiles = ({ onNext, onPrev, onFilesAccepted }) => {
               </div>
             </div>
 
-            <div
-              style={{
-                paddingTop: "2rem",
-              }}
-            >
+            <div className="pt-4">
               <section className="container">
                 <div {...getRootProps({ className: "dropzone" })}>
                   <input {...getInputProps()} />
@@ -107,29 +89,20 @@ const ProjectFiles = ({ onNext, onPrev, onFilesAccepted }) => {
                     <span>
                       <UploadFiles />
                     </span>
-                    <p
-                      className="normalPTag"
-                      style={{
-                        textAlign: "center",
-                      }}
-                    >
+                    <p className="normalPTag text-center">
                       <span
                         style={{
                           color: "#889CFF",
+                          cursor: "pointer",
                         }}
                       >
-                        Click to Upload
-                      </span>{" "}
+                        Click to Upload{" "}
+                      </span>
                       or drag and drop files here{" "}
                     </p>
                   </div>
                 </div>
-                <aside
-                  style={{
-                    marginTop: "0.5rem",
-                  }}
-                  className="normalPTag"
-                >
+                <aside className="normalPTag pt-2">
                   <ul>{files}</ul>
                 </aside>
               </section>

@@ -6,16 +6,16 @@ const Hello = () => {
   const { user } = useSelector(selectAuth);
   const firstName = user?.firstName;
 
+  const h2Styles = {
+    fontSize: "clamp(1rem, 1.8rem + 1.5vw, 2.8rem)",
+    fontWeight: "800",
+    color: "#ffffff",
+  };
+
   return (
     <Container>
       <Col>
-        <h2
-          style={{
-            fontSize: "clamp(1rem, 1.8rem + 1.5vw, 2.8rem)",
-            fontWeight: "800",
-            color: "#ffffff",
-          }}
-        >
+        <h2 style={h2Styles}>
           Hello,
           <span style={{ color: "#EEA20E" }}> {firstName || "Jackson"}</span>
         </h2>

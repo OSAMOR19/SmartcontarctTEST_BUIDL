@@ -54,7 +54,7 @@ const Header = ({ to, toggled, setToggled }) => {
                 <Nav>
                   <NavDropdown
                     title={
-                      <div className="d-flex align-align-items-center">
+                      <div className="d-flex align-items-center">
                         <Image
                           src={images.profileAvatar.src}
                           alt={images.profileAvatar.alt}
@@ -67,10 +67,11 @@ const Header = ({ to, toggled, setToggled }) => {
                           </span>
                           <span
                             style={{
+                              fontSize: "1.12rem",
                               color: "#FFFFFF",
                               marginTop: "-5px",
                             }}
-                            className="fs-5 fw-medium"
+                            className="fw-medium"
                           >
                             {username || " CharlesDesign"}
                           </span>
