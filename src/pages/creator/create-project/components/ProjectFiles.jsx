@@ -1,4 +1,4 @@
-import React from "react";
+import { useNavigate } from "react-router-dom";
 import { Container, Row, Col } from "react-bootstrap";
 import { useDropzone } from "react-dropzone";
 import LineProgress2 from "../../../../assets/icons/line-progress2.svg";
@@ -75,8 +75,6 @@ const ProjectFiles = ({ onNext, onPrev, onFilesAccepted }) => {
                 </div>
                 <ul>
                   <li>Whitepaper or Business Case Doc</li>
-                  {/* <li>Product Concept and Features</li> */}
-                  {/* <li>User Story or Case Study</li> */}
                 </ul>
               </div>
             </div>
@@ -133,13 +131,11 @@ const ProjectFiles = ({ onNext, onPrev, onFilesAccepted }) => {
                 />
               </div>
               <span
-                className="normalPTag"
+                className="normalPTag fw-medium"
                 style={{
                   color: "#EEA20E",
-                  fontWeight: "500",
                   cursor: "pointer",
                 }}
-                onClick={onNext}
               >
                 Save & Continue later
               </span>

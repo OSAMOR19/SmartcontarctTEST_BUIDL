@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import CreatorLayout from "../components/layouts";
 import Hello from "../components/Hello";
-import CreateProject from "../create-project";
+import CreateProject from "../components/CreateProject";
 import Overview from "./components/Overview";
 import MyProjects from "./components/MyProjects";
 import Transaction from "./components/Transaction";
@@ -35,14 +35,14 @@ const CreatorDashboard = () => {
       <Hello />
       {/* {allProjects && allProjects.length > 0 ? (
         <> */}
-          <Overview />
-          <MyProjects />
-          <Transaction />
-        {/* </>
+      <Overview />
+      <MyProjects />
+      <Transaction />
+      {/* </>
       ) : (
         <> */}
-          {/* <CreateProject /> */}
-        {/* </>
+      {/* <CreateProject /> */}
+      {/* </>
       )} */}
     </div>
     // <div className="fullHeightWithColorBg">

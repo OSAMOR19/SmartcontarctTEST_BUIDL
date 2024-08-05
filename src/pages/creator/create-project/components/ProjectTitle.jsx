@@ -1,15 +1,15 @@
-import { Container, Row, Col } from "react-bootstrap";
+import { Container, Col } from "react-bootstrap";
 import LineProgressOne from "../../../../assets/icons/line-progress1.svg";
 import InputLabel from "../../../../components/ui/inputs/LabelInput";
 import MediumSolidButton from "../../../../components/ui/buttons/MediumSolidButton";
 import LabelTextarea from "../../../../components/ui/textareas/LabelTextarea";
 
 const ProjectTitle = ({
-  onNext,
   title,
   handleTitleChange,
   projectDescription,
   handleProjectDescriptionChange,
+  onNext,
 }) => {
   const bodyStyles = {
     paddingBottom: "5rem",
@@ -21,6 +21,7 @@ const ProjectTitle = ({
     paddingBottom: "10rem",
     borderRadius: 14 + "px",
   };
+
   return (
     <Container style={bodyStyles}>
       <Col style={colStyles}>
@@ -70,10 +71,9 @@ const ProjectTitle = ({
                 onClick={onNext}
               />
               <span
-                className="normalPTag"
+                className="normalPTag fw-medium"
                 style={{
                   color: "#EEA20E",
-                  fontWeight: "500",
                   cursor: "pointer",
                 }}
                 onClick={onNext}

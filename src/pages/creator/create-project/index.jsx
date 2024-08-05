@@ -1,4 +1,3 @@
-import React from "react";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { createProject } from "../../../store/projects/reducer";
@@ -7,37 +6,25 @@ import ProjectTitle from "./components/ProjectTitle";
 import ProjectFiles from "./components/ProjectFiles";
 import ProjectDone from "./components/ProjectDone";
 import fileToBase64 from "./fileToBase64";
+import useMultiStepForm from "../../../hooks/useMultiStepForm";
 import EnhancedBreadcrumb from "../components/layouts/EnhancedBreadcrumb ";
 
 const CreateProject = () => {
-  const [currentPage, setCurrentPage] = useState(1);
   const dispatch = useDispatch();
 
   const [title, setTitle] = useState("");
   const [projectDescription, setProjectDescription] = useState("");
+  const [files, setFiles] = useState([]);
+  const [team, setTeam] = useState([]);
+
   const handleTitleChange = (e) => {
     setTitle(e.target.value);
   };
   const handleProjectDescriptionChange = (e) => {
     setProjectDescription(e.target.value);
   };
-
-  const [files, setFiles] = useState([]);
   const handleFilesAccepted = (acceptedFiles) => {
     setFiles(acceptedFiles);
-  };
-
-  const [nameValue, setNameValue] = useState("");
-  const [selectedOption, setSelectedOption] = useState("");
-  const [textAreaValue, setTextAreaValue] = useState("");
-  const handleNameValueChange = (e) => {
-    setNameValue(e.target.value);
-  };
-  const handleSelectedOptionChange = (e) => {
-    setSelectedOption(e.target.value);
-  };
-  const handleTextAreaValueChange = (e) => {
-    setTextAreaValue(e.target.value);
   };
 
   const handleCreateProject = async () => {
@@ -57,16 +44,10 @@ const CreateProject = () => {
       title,
       description: projectDescription,
       documents,
-      team: [
-        {
-          name: nameValue,
-          role: selectedOption,
-          email: "random@gmail.com",
-          description: textAreaValue,
-        },
-      ],
+      team,
     };
-    dispatch(createProject(projectData));
+    console.log(projectData)
+    // dispatch(createProject(projectData));
 
     // Reset project fields
     clearProjectState();
@@ -75,50 +56,39 @@ const CreateProject = () => {
   function clearProjectState() {
     setTitle("");
     setProjectDescription("");
-    setFiles("");
-    setNameValue("");
-    setSelectedOption("");
-    setTextAreaValue("");
+    setFiles([]);
+    setTeam([]);
   }
 
-  const onNextPage = async () => {
-    setCurrentPage(currentPage + 1);
-  };
-  const onPrevPage = () => {
-    setCurrentPage(currentPage - 1);
-  };
+  const { currentStep, nextStep, prevStep } = useMultiStepForm();
 
   return (
     <div className="fullHeightWithColorBg">
       <CreatorLayout />
       <EnhancedBreadcrumb previousValue="Create Project" />
-      {currentPage === 1 && (
+      {currentStep === 1 && (
         <ProjectTitle
-          onNext={onNextPage}
+          onNext={nextStep}
           title={title}
           handleTitleChange={handleTitleChange}
           projectDescription={projectDescription}
           handleProjectDescriptionChange={handleProjectDescriptionChange}
         />
       )}
-      {currentPage === 2 && (
+      {currentStep === 2 && (
         <ProjectFiles
           onFilesAccepted={handleFilesAccepted}
-          onPrev={onPrevPage}
-          onNext={onNextPage}
+          onPrev={prevStep}
+          onNext={nextStep}
         />
       )}
-      {currentPage === 3 && (
-        <ProjectDone
-          nameValue={nameValue}
-          handleNameValueChange={handleNameValueChange}
-          selectedOption={selectedOption}
-          handleSelectedOptionChange={handleSelectedOptionChange}
-          textAreaValue={textAreaValue}
-          handleTextAreaValueChange={handleTextAreaValueChange}
-          handleCreateProject={handleCreateProject}
-          onPrev={onPrevPage}
-        />
+      {currentStep === 3 && (
+         <ProjectDone
+         handleCreateProject={handleCreateProject}
+         onPrev={prevStep}
+         team={team}
+         setTeam={setTeam}
+       />
       )}
     </div>
   );

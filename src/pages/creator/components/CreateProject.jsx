@@ -19,10 +19,19 @@ const CreateProject = () => {
     padding: "2rem",
     borderRadius: 14 + "px",
   };
+
+  const offerStyle = {
+    border: "0.075rem solid #3F4561",
+    borderRadius: "14px",
+    textAlign: "center",
+    color: "#ffffff",
+    background: "#222532",
+  };
+
   return (
     <Container style={bodyStyles}>
       <Col style={colStyles}>
-        <div className="d-flex flex-column align-align-items-center justify-content-center">
+        <div className="d-flex flex-column align-items-center justify-content-center">
           <Image
             src={images.createImage.src}
             alt={images.createImage.alt}
@@ -52,7 +61,7 @@ const CreateProject = () => {
               </span>
             </span>
           </div>
-          <div className="w-w-100 text-center">
+          <div className="w-100 text-center">
             <MediumSolidButton
               type="button"
               text="Create Project"

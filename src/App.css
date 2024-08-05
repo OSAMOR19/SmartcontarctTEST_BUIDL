@@ -276,7 +276,7 @@ section .dropzone {
 
 /* bootstrap checkbox style for specific component called ProjectDone */
 
-div .myStyleCheckbox form .form-check {
+div .createProjectCheckbox form .form-check {
     display: flex;
     min-height: 1.5rem;
     padding-left: 1.5em;
@@ -285,23 +285,23 @@ div .myStyleCheckbox form .form-check {
     gap: 0.5rem;
 }
 
-div .myStyleCheckbox form label {
+div .createProjectCheckbox form label {
     display: inline-block;
     color: white;
     font-size: 1.25rem;
     font-weight: 500;
 }
 
-div .myStyleCheckbox form .form-check-input[type="checkbox"] {
+div .createProjectCheckbox form .form-check-input[type="checkbox"] {
     border-radius: 5rem !important;
 }
 
-div .myStyleCheckbox form .form-check .form-check-input {
+div .createProjectCheckbox form .form-check .form-check-input {
     float: left;
     margin-left: -1.5em;
 }
 
-div .myStyleCheckbox form .form-check-input {
+div .createProjectCheckbox form .form-check-input {
     --bs-form-check-bg: var(--bs-body-bg);
     flex-shrink: 0;
     width: 2rem !important;

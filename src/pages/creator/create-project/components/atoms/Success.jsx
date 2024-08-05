@@ -16,15 +16,11 @@ const Success = () => {
 
   const bodyStyles = {
     backgroundColor: "rgba(39, 42, 56, 0.79)",
-    position: "fixed",
-    margin: "auto",
-    minHeight: "100vh",
-    paddingTop: "7rem",
+    zIndex: "50",
   };
 
   const divStyles = {
-    margin: "auto",
-    padding: "5rem 3rem",
+    padding: "3rem",
     maxWidth: "350px",
     borderRadius: "13px",
     background: "#1A1C28",
@@ -32,50 +28,52 @@ const Success = () => {
   };
 
   return (
-    <Container fluid style={bodyStyles}>
-      <div
-        style={divStyles}
-        className="text-center d-flex flex-column align-items-center gap-2"
-      >
-        <div>
-          <Done />
-        </div>
+    <Container
+      fluid
+      style={bodyStyles}
+      className="position-fixed m-auto min-vh-100"
+    >
+      <section className="min-vh-100 d-flex justify-content-center align-items-center">
         <div
-          style={{
-            textAlign: "center",
-          }}
+          style={divStyles}
+          className="m-auto d-flex flex-column align-items-center gap-2 text-center "
         >
-          <h4
+          <div>
+            <Done />
+          </div>
+          <div className="text-center">
+            <h4
+              style={{
+                color: "#FFFF",
+              }}
+              className="fs-5 fw-semibold"
+            >
+              Project Created Successfully
+            </h4>
+          </div>
+          <p className="normalPTag">
+            You’ve successfully created a project -{" "}
+            <span
+              style={{
+                color: "#FFFF",
+                fontWeight: "700",
+              }}
+            >
+              {requestStatus === "createSuccessFull" && projectId
+                ? projectId
+                : ""}
+            </span>
+          </p>
+          <MediumSolidButton
+            type="button"
+            text="Done"
             style={{
-              color: "#FFFF",
+              width: "6rem",
             }}
-            className="fs-5 fw-semibold"
-          >
-            Project Created Successfully
-          </h4>
+            onClick={handleDoneClick}
+          />
         </div>
-        <p className="normalPTag">
-          You’ve successfully created a project -{" "}
-          <span
-            style={{
-              color: "#FFFF",
-              fontWeight: "700",
-            }}
-          >
-            {requestStatus === "createSuccessFull" && projectId
-              ? projectId
-              : ""}
-          </span>
-        </p>
-        <MediumSolidButton
-          type="button"
-          text="Done"
-          style={{
-            width: "6rem",
-          }}
-          onClick={handleDoneClick}
-        />
-      </div>
+      </section>
     </Container>
   );
 };

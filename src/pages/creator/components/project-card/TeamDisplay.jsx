@@ -44,7 +44,7 @@ const TeamDisplay = ({ team }) => {
           />
         </div>
         <div>
-          <span className="fw-medium">{`+${team - 2} Teams`}</span>
+          <span className="fw-medium">{`+${team - 2} Applicants`}</span>
         </div>
       </div>
     );

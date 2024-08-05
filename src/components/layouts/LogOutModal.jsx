@@ -21,7 +21,7 @@ const LogOutModal = ({ showLogout, setShowLogout }) => {
     display: `${showLogout ? "block" : "none"}`,
     zIndex: "50",
   };
-  
+
   const divStyles = {
     padding: "2rem",
     background: "#21232F",
@@ -31,14 +31,8 @@ const LogOutModal = ({ showLogout, setShowLogout }) => {
   };
 
   return (
-    <Container fluid className=" position-fixed" style={bodyStyles}>
-      <section
-        className="flex justify-content-center"
-        style={{
-          minHeight: "100vh",
-          paddingTop: "15rem",
-        }}
-      >
+    <Container fluid className="position-fixed" style={bodyStyles}>
+      <section className="min-vh-100 d-flex justify-content-center align-items-center">
         <div
           className="d-flex flex-column align-items-center gap-4"
           style={divStyles}

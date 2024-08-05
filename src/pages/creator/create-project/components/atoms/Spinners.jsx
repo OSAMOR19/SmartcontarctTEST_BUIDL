@@ -4,14 +4,9 @@ import Spinner from "react-bootstrap/Spinner";
 const Spinners = () => {
   const bodyStyles = {
     backgroundColor: "rgba(39, 42, 56, 0.79)",
-    position: "fixed",
-    margin: "auto",
-    minHeight: "100vh",
-    paddingTop: "10rem",
-    zIndex: 50,
+    zIndex: "50",
   };
   const divStyles = {
-    margin: "auto",
     padding: "7rem 3rem",
     maxWidth: "350px",
     borderRadius: "13px",
@@ -20,20 +15,25 @@ const Spinners = () => {
   };
 
   return (
-    <Container fluid style={bodyStyles}>
-      <div
-        style={divStyles}
-        className="text-center d-flex flex-column align-items-center gap-2"
-      >
-        <Spinner animation="border" role="status">
-          <span className="visually-hidden">Loading...</span>
-        </Spinner>
-        <span className="normalPTag">
-          Build AI analyzing to create project...
-        </span>
-      </div>
+    <Container
+      fluid
+      style={bodyStyles}
+      className="position-fixed m-auto min-vh-100"
+    >
+      <section className="min-vh-100 d-flex justify-content-center align-items-center">
+        <div
+          style={divStyles}
+          className="m-auto d-flex flex-column align-items-center gap-2 text-center "
+        >
+          <Spinner animation="border" role="status">
+            <span className="visually-hidden">Loading...</span>
+          </Spinner>
+          <span className="normalPTag">
+            Build AI analyzing to create project...
+          </span>
+        </div>
+      </section>
     </Container>
-    // </Col>
   );
 };
 
