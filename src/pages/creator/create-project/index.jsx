@@ -17,6 +17,8 @@ const CreateProject = () => {
   const [files, setFiles] = useState([]);
   const [team, setTeam] = useState([]);
 
+  const [talentBudgets, setTalentBudgets] = useState([]);
+
   const handleTitleChange = (e) => {
     setTitle(e.target.value);
   };
@@ -45,8 +47,9 @@ const CreateProject = () => {
       description: projectDescription,
       documents,
       team,
+      talentBudgets,
     };
-    console.log(projectData)
+    console.log(projectData);
     // dispatch(createProject(projectData));
 
     // Reset project fields
@@ -83,12 +86,13 @@ const CreateProject = () => {
         />
       )}
       {currentStep === 3 && (
-         <ProjectDone
-         handleCreateProject={handleCreateProject}
-         onPrev={prevStep}
-         team={team}
-         setTeam={setTeam}
-       />
+        <ProjectDone
+          handleCreateProject={handleCreateProject}
+          onPrev={prevStep}
+          team={team}
+          setTeam={setTeam}
+          setTalentBudgets={setTalentBudgets}
+        />
       )}
     </div>
   );

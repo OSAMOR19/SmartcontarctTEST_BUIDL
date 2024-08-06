@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { Container, Row, Col } from "react-bootstrap";
-import Form from "react-bootstrap/Form";
 import LineProgressThree from "../../../../assets/icons/line-progress3.svg";
 import MediumSolidButton from "../../../../components/ui/buttons/MediumSolidButton";
 import MediumOutlineButton from "../../../../components/ui/buttons/MediumOutlineButton";
@@ -12,9 +11,18 @@ import { useSelector } from "react-redux";
 import Spinners from "./atoms/Spinners";
 import Success from "./atoms/Success";
 import Checkbox from "./ui/Checkbox";
+import SelectTalents from "./project-done/SelectTalents";
 
-const ProjectDone = ({ onPrev, handleCreateProject, team, setTeam }) => {
+const ProjectDone = ({
+  onPrev,
+  handleCreateProject,
+  team,
+  setTeam,
+  setTalentBudgets,
+}) => {
   const [toggled, setToggled] = useState(false);
+  const [showSelectTalents, setShowSelectTalents] = useState(false);
+
   const [editIndex, setEditIndex] = useState(null);
 
   const [addTeamChecked, setAddTeamChecked] = useState(false);
@@ -22,6 +30,10 @@ const ProjectDone = ({ onPrev, handleCreateProject, team, setTeam }) => {
 
   const handleToggled = () => {
     setToggled(!toggled);
+  };
+
+  const handleShowSelectTalents = () => {
+    setShowSelectTalents(!showSelectTalents);
   };
 
   const handleAddTeamMember = (member) => {
@@ -64,6 +76,10 @@ const ProjectDone = ({ onPrev, handleCreateProject, team, setTeam }) => {
 
   if (requestStatus === "createSuccessFull") {
     return <Success />;
+  }
+
+  if (showSelectTalents) {
+    return <SelectTalents onUpdateTalents={setTalentBudgets} />;
   }
 
   const bodyStyles = {
@@ -148,6 +164,15 @@ const ProjectDone = ({ onPrev, handleCreateProject, team, setTeam }) => {
                   This project is made known to project managers on the platform
                   for application
                 </h4>
+                <MediumOutlineButton
+                  type="button"
+                  text="* Proceed"
+                  style={{
+                    marginTop: "0rem",
+                    width: "8rem",
+                  }}
+                  onClick={handleShowSelectTalents}
+                />
               </div>
             )}
 
