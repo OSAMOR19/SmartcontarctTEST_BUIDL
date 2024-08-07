@@ -70,7 +70,7 @@ export const activateAccount = createAsyncThunk(
 );
 
 export const logInUser = createAsyncThunk(
-  `${name}/resetPassword`,
+  `${name}/logInUser`,
   async (logInCredential) => {
     if (!logInCredential) return;
     try {
@@ -199,9 +199,9 @@ const AuthSlice = createSlice({
       // window.location.assign("/creator/dashboard");
     });
     // get profile
-    builder.addCase(getProfile.pending, (state) => {
-      state.requestStatus = "loading";
-    });
+    // builder.addCase(getProfile.pending, (state) => {
+    //   state.requestStatus = "loading";
+    // });
     builder.addCase(getProfile.rejected, (state, action) => {
       state.error = action.error.message;
       state.requestStatus = "failed";
