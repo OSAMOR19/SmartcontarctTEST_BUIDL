@@ -1,16 +1,37 @@
+import { useState } from "react";
 import { Container, Col } from "react-bootstrap";
 import LineProgressOne from "../../../../assets/icons/line-progress1.svg";
 import InputLabel from "../../../../components/ui/inputs/LabelInput";
 import MediumSolidButton from "../../../../components/ui/buttons/MediumSolidButton";
 import LabelTextarea from "../../../../components/ui/textareas/LabelTextarea";
+import LabelSelect from "../../../../components/ui/selects/LabelSelect";
+import CustomRequired from "./ui/CustomRequired";
 
 const ProjectTitle = ({
   title,
   handleTitleChange,
+  duration,
+  handleDurationSelectChange,
   projectDescription,
   handleProjectDescriptionChange,
   onNext,
 }) => {
+  // const [duration, setDuration] = useState("");
+
+  const selectDuration = [
+    { value: "", label: "Select project duration" },
+    { value: "1", label: "1 month" },
+    { value: "2", label: "2 month" },
+    { value: "3", label: "3 month" },
+    { value: "4", label: "4 month" },
+    { value: "5", label: "5 month" },
+    { value: "6", label: "6 month" },
+  ];
+
+  // const handleSelectChange = (e) => {
+  //   setDuration(e.target.value);
+  // };
+
   const bodyStyles = {
     paddingBottom: "5rem",
   };
@@ -40,7 +61,7 @@ const ProjectTitle = ({
             <div className="d-flex flex-column gap-4">
               <div className="pt-4">
                 <InputLabel
-                  label="Project Title"
+                  label={<CustomRequired text="Project title" />}
                   id="projectTitle"
                   name="projectTitle"
                   type="text"
@@ -50,6 +71,15 @@ const ProjectTitle = ({
                   onChange={handleTitleChange}
                 />
               </div>
+
+              <LabelSelect
+                label={<CustomRequired text="Project Duration" />}
+                id="projectDuration"
+                name="projectDuration"
+                options={selectDuration}
+                value={duration}
+                onChange={handleDurationSelectChange}
+              />
 
               <LabelTextarea
                 label="Project Description"
@@ -62,6 +92,7 @@ const ProjectTitle = ({
             </div>
             <div className="d-flex pt-5 align-items-center flex-wrap justify-content-between">
               <MediumSolidButton
+                disabled={!title || !duration}
                 type="button"
                 text="Next"
                 style={{

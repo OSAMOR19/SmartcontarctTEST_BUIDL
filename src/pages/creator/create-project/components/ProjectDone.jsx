@@ -12,13 +12,15 @@ import Spinners from "./atoms/Spinners";
 import Success from "./atoms/Success";
 import Checkbox from "./ui/Checkbox";
 import SelectTalents from "./project-done/SelectTalents";
+import CustomRequired from "./ui/CustomRequired";
 
 const ProjectDone = ({
   onPrev,
+  onNext,
   handleCreateProject,
   team,
   setTeam,
-  setTalentBudgets,
+  // setTalentBudgets,
 }) => {
   const [toggled, setToggled] = useState(false);
   const [showSelectTalents, setShowSelectTalents] = useState(false);
@@ -32,9 +34,9 @@ const ProjectDone = ({
     setToggled(!toggled);
   };
 
-  const handleShowSelectTalents = () => {
-    setShowSelectTalents(!showSelectTalents);
-  };
+  // const handleShowSelectTalents = () => {
+  //   setShowSelectTalents(!showSelectTalents);
+  // };
 
   const handleAddTeamMember = (member) => {
     if (editIndex !== null) {
@@ -78,9 +80,9 @@ const ProjectDone = ({
     return <Success />;
   }
 
-  if (showSelectTalents) {
-    return <SelectTalents onUpdateTalents={setTalentBudgets} />;
-  }
+  // if (showSelectTalents) {
+  //   return <SelectTalents onUpdateTalents={setTalentBudgets} />;
+  // }
 
   const bodyStyles = {
     paddingBottom: "5rem",
@@ -112,15 +114,8 @@ const ProjectDone = ({
             </Row>
 
             <div className="pt-4">
-              <h4
-                style={{
-                  color: "#ffffff",
-                  fontSize: "clamp(1rem, 1.8rem + 1.5vw, 1.3rem)",
-                }}
-              >
-                How Would You Like to Build ?
-              </h4>
-              <div className="createProjectCheckbox d-flex gap-4">
+              <CustomRequired text="How Would You Like to Build ?" />
+              <div className="createProjectCheckbox d-flex gap-4 pt-2">
                 <Checkbox
                   checkBoxLabel="Add Team"
                   id="addTeam"
@@ -137,11 +132,7 @@ const ProjectDone = ({
             </div>
 
             {addTeamChecked && (
-              <div
-                style={{
-                  paddingTop: "2rem",
-                }}
-              >
+              <div className="pt-4">
                 <MediumOutlineButton
                   type="button"
                   text="* Add Team"
@@ -155,24 +146,11 @@ const ProjectDone = ({
             )}
 
             {hireBuidlTalentsChecked && (
-              <div
-                style={{
-                  paddingTop: "2rem",
-                }}
-              >
-                <h4 className="normalPTag">
+              <div className="pt-3">
+                <h4 className="normalPTag fw-medium">
                   This project is made known to project managers on the platform
                   for application
                 </h4>
-                <MediumOutlineButton
-                  type="button"
-                  text="* Proceed"
-                  style={{
-                    marginTop: "0rem",
-                    width: "8rem",
-                  }}
-                  onClick={handleShowSelectTalents}
-                />
               </div>
             )}
 
@@ -234,15 +212,31 @@ const ProjectDone = ({
                   }}
                   onClick={onPrev}
                 />
-                <MediumSolidButton
-                  type="button"
-                  text="Done"
-                  style={{
-                    marginTop: "0rem",
-                    width: "6rem",
-                  }}
-                  onClick={handleCreateProject}
-                />
+                <div>
+                  {addTeamChecked && (
+                    <MediumSolidButton
+                      disabled={!team.length}
+                      type="button"
+                      text="Done"
+                      style={{
+                        marginTop: "0rem",
+                        width: "6rem",
+                      }}
+                      onClick={handleCreateProject}
+                    />
+                  )}
+                  {hireBuidlTalentsChecked && (
+                    <MediumSolidButton
+                      type="button"
+                      text="Proceed"
+                      style={{
+                        marginTop: "0rem",
+                        width: "6rem",
+                      }}
+                      onClick={onNext}
+                    />
+                  )}
+                </div>
               </div>
               <span
                 className="normalPTag fw-medium"

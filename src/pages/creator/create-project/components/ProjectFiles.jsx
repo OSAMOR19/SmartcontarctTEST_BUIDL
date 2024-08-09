@@ -124,10 +124,7 @@ const ProjectFiles = ({ onNext, onPrev, onFilesAccepted }) => {
                     marginTop: "0rem",
                     width: "6rem",
                   }}
-                  onClick={(event) => {
-                    event.stopPropagation();
-                    onNext();
-                  }}
+                  onClick={onNext}
                 />
               </div>
               <span

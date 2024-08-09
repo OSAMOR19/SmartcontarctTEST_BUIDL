@@ -52,7 +52,7 @@ InputLabel.propTypes = {
   type: PropTypes.string.isRequired,
   placeholder: PropTypes.string,
   value: PropTypes.any.isRequired,
-  label: PropTypes.string.isRequired,
+  label: PropTypes.any.isRequired,
   onChange: PropTypes.func.isRequired,
 };
 

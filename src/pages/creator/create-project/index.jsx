@@ -8,11 +8,13 @@ import ProjectDone from "./components/ProjectDone";
 import fileToBase64 from "./fileToBase64";
 import useMultiStepForm from "../../../hooks/useMultiStepForm";
 import EnhancedBreadcrumb from "../components/layouts/EnhancedBreadcrumb ";
+import SelectTalents from "./components/project-done/SelectTalents";
 
 const CreateProject = () => {
   const dispatch = useDispatch();
 
   const [title, setTitle] = useState("");
+  const [duration, setDuration] = useState("");
   const [projectDescription, setProjectDescription] = useState("");
   const [files, setFiles] = useState([]);
   const [team, setTeam] = useState([]);
@@ -21,6 +23,9 @@ const CreateProject = () => {
 
   const handleTitleChange = (e) => {
     setTitle(e.target.value);
+  };
+  const handleDurationSelectChange = (e) => {
+    setDuration(e.target.value);
   };
   const handleProjectDescriptionChange = (e) => {
     setProjectDescription(e.target.value);
@@ -74,6 +79,8 @@ const CreateProject = () => {
           onNext={nextStep}
           title={title}
           handleTitleChange={handleTitleChange}
+          duration={duration}
+          handleDurationSelectChange={handleDurationSelectChange}
           projectDescription={projectDescription}
           handleProjectDescriptionChange={handleProjectDescriptionChange}
         />
@@ -81,18 +88,33 @@ const CreateProject = () => {
       {currentStep === 2 && (
         <ProjectFiles
           onFilesAccepted={handleFilesAccepted}
-          onPrev={prevStep}
           onNext={nextStep}
+          onPrev={prevStep}
         />
       )}
       {currentStep === 3 && (
         <ProjectDone
           handleCreateProject={handleCreateProject}
+          onNext={nextStep}
           onPrev={prevStep}
           team={team}
           setTeam={setTeam}
-          setTalentBudgets={setTalentBudgets}
+          // setTalentBudgets={setTalentBudgets}
         />
+      )}
+      {currentStep === 4 && (
+        <SelectTalents
+          onUpdateTalents={setTalentBudgets}
+          onNext={nextStep}
+          onPrev={prevStep}
+        />
+        // <ProjectDone
+        //   handleCreateProject={handleCreateProject}
+        //   onPrev={prevStep}
+        //   team={team}
+        //   setTeam={setTeam}
+        //   setTalentBudgets={setTalentBudgets}
+        // />
       )}
     </div>
   );

@@ -3,8 +3,10 @@ import { Container, Col, Button } from "react-bootstrap";
 import PureSelect from "../../../../../components/ui/selects/PureSelect";
 import InputField from "../../../../../components/ui/inputs/InputField";
 import CancelTalent from "../../../../../assets/icons/cancle-talent.svg";
+import MediumOutlineButton from "../../../../../components/ui/buttons/MediumOutlineButton";
+import MediumSolidButton from "../../../../../components/ui/buttons/MediumSolidButton";
 
-const SelectTalents = ({ onUpdateTalents }) => {
+const SelectTalents = ({ onUpdateTalents, onPrev, onNext }) => {
   const [talentEntries, setTalentEntries] = useState([
     { talent: "", budget: "$" },
   ]);
@@ -103,6 +105,26 @@ const SelectTalents = ({ onUpdateTalents }) => {
               >
                 Add more talents
               </span>
+            </div>
+            <div className="pt-5 d-flex gap-2">
+              <MediumOutlineButton
+                type="button"
+                text="Previous"
+                style={{
+                  marginTop: "0rem",
+                  width: "6rem",
+                }}
+                onClick={onPrev}
+              />
+              <MediumSolidButton
+                type="button"
+                text="Proceed"
+                style={{
+                  marginTop: "0rem",
+                  width: "6rem",
+                }}
+                onClick={onNext}
+              />
             </div>
           </div>
         </div>
