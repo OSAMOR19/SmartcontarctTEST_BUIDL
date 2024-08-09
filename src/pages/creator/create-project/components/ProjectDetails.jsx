@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { Container, Col } from "react-bootstrap";
 import LineProgressOne from "../../../../assets/icons/line-progress1.svg";
 import InputLabel from "../../../../components/ui/inputs/LabelInput";
@@ -7,7 +6,7 @@ import LabelTextarea from "../../../../components/ui/textareas/LabelTextarea";
 import LabelSelect from "../../../../components/ui/selects/LabelSelect";
 import CustomRequired from "./ui/CustomRequired";
 
-const ProjectTitle = ({
+const ProjectDetails = ({
   title,
   handleTitleChange,
   duration,
@@ -16,8 +15,6 @@ const ProjectTitle = ({
   handleProjectDescriptionChange,
   onNext,
 }) => {
-  // const [duration, setDuration] = useState("");
-
   const selectDuration = [
     { value: "", label: "Select project duration" },
     { value: "1", label: "1 month" },
@@ -27,10 +24,6 @@ const ProjectTitle = ({
     { value: "5", label: "5 month" },
     { value: "6", label: "6 month" },
   ];
-
-  // const handleSelectChange = (e) => {
-  //   setDuration(e.target.value);
-  // };
 
   const bodyStyles = {
     paddingBottom: "5rem",
@@ -119,4 +112,4 @@ const ProjectTitle = ({
   );
 };
 
-export default ProjectTitle;
+export default ProjectDetails;

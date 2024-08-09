@@ -1,12 +1,18 @@
 import { useState } from "react";
-import { Container, Col, Button } from "react-bootstrap";
-import PureSelect from "../../../../../components/ui/selects/PureSelect";
-import InputField from "../../../../../components/ui/inputs/InputField";
-import CancelTalent from "../../../../../assets/icons/cancle-talent.svg";
-import MediumOutlineButton from "../../../../../components/ui/buttons/MediumOutlineButton";
-import MediumSolidButton from "../../../../../components/ui/buttons/MediumSolidButton";
+import { Container, Col } from "react-bootstrap";
+import PureSelect from "../../../../components/ui/selects/PureSelect";
+import InputField from "../../../../components/ui/inputs/InputField";
+import CancelTalent from "../../../../assets/icons/cancle-talent.svg";
+import MediumOutlineButton from "../../../../components/ui/buttons/MediumOutlineButton";
+import MediumSolidButton from "../../../../components/ui/buttons/MediumSolidButton";
 
-const SelectTalents = ({ onUpdateTalents, onPrev, onNext }) => {
+const SelectTalents = ({
+  onUpdateTalents,
+  onPrev,
+  onNext,
+  talentBudgets,
+  handleCreateProject,
+}) => {
   const [talentEntries, setTalentEntries] = useState([
     { talent: "", budget: "$" },
   ]);
@@ -39,9 +45,9 @@ const SelectTalents = ({ onUpdateTalents, onPrev, onNext }) => {
 
   const selectTalents = [
     { value: "", label: "Select Role" },
-    { value: "frontend developer", label: "Frontend Developer" },
-    { value: "backend developer", label: "Backend Developer" },
-    { value: "product designer", label: "Product Designer" },
+    { value: "Frontend Developer", label: "Frontend Developer" },
+    { value: "Backend Developer", label: "Backend Developer" },
+    { value: "Product Designer", label: "Product Designer" },
   ];
 
   const bodyStyles = {
@@ -61,8 +67,7 @@ const SelectTalents = ({ onUpdateTalents, onPrev, onNext }) => {
           <div style={{ width: "100%" }} className="centerForm">
             <h2 className="strongH2Tag">Select Talents</h2>
             <p className="normalPTag">
-              Invite your team or hire directly from the Buidl Job Marketplace —
-              it's your choice
+              Select your preferred option to move forward
             </p>
             {talentEntries.map((entry, index) => (
               <div key={index} className="w-100 pt-3">
@@ -117,6 +122,7 @@ const SelectTalents = ({ onUpdateTalents, onPrev, onNext }) => {
                 onClick={onPrev}
               />
               <MediumSolidButton
+                disabled={!talentBudgets.length}
                 type="button"
                 text="Proceed"
                 style={{

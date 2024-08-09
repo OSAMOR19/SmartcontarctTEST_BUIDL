@@ -1,11 +1,16 @@
 :root {
     --appYellow: #EEA20E;
+    --appWhite: #FFFFFF;
     /* override toastify success color */
     --toastify-icon-color-success: #EEA20E !important;
 }
 
 .useAppYellow {
     color: var(--appYellow);
+}
+
+.useAppWhite {
+    color: var(--appWhite);
 }
 
 .fullHeightWithColorBg {

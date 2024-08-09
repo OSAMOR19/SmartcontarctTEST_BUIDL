@@ -2,13 +2,14 @@ import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { createProject } from "../../../store/projects/reducer";
 import CreatorLayout from "../components/layouts";
-import ProjectTitle from "./components/ProjectTitle";
+import ProjectDetails from "./components/ProjectDetails";
 import ProjectFiles from "./components/ProjectFiles";
-import ProjectDone from "./components/ProjectDone";
+import ProjectFinalize from "./components/ProjectFinalize";
 import fileToBase64 from "./fileToBase64";
 import useMultiStepForm from "../../../hooks/useMultiStepForm";
 import EnhancedBreadcrumb from "../components/layouts/EnhancedBreadcrumb ";
-import SelectTalents from "./components/project-done/SelectTalents";
+import SelectTalents from "./components/SelectTalents";
+import ProjectPayment from "./components/ProjectPayment";
 
 const CreateProject = () => {
   const dispatch = useDispatch();
@@ -75,7 +76,7 @@ const CreateProject = () => {
       <CreatorLayout />
       <EnhancedBreadcrumb previousValue="Create Project" />
       {currentStep === 1 && (
-        <ProjectTitle
+        <ProjectDetails
           onNext={nextStep}
           title={title}
           handleTitleChange={handleTitleChange}
@@ -93,28 +94,29 @@ const CreateProject = () => {
         />
       )}
       {currentStep === 3 && (
-        <ProjectDone
+        <ProjectFinalize
           handleCreateProject={handleCreateProject}
           onNext={nextStep}
           onPrev={prevStep}
           team={team}
           setTeam={setTeam}
-          // setTalentBudgets={setTalentBudgets}
         />
       )}
       {currentStep === 4 && (
         <SelectTalents
+          handleCreateProject={handleCreateProject}
           onUpdateTalents={setTalentBudgets}
           onNext={nextStep}
           onPrev={prevStep}
+          talentBudgets={talentBudgets}
         />
-        // <ProjectDone
-        //   handleCreateProject={handleCreateProject}
-        //   onPrev={prevStep}
-        //   team={team}
-        //   setTeam={setTeam}
-        //   setTalentBudgets={setTalentBudgets}
-        // />
+      )}
+      {currentStep === 5 && (
+        <ProjectPayment
+          onNext={nextStep}
+          onPrev={prevStep}
+          talentBudgets={talentBudgets}
+        />
       )}
     </div>
   );

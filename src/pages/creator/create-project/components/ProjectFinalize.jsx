@@ -5,25 +5,22 @@ import MediumSolidButton from "../../../../components/ui/buttons/MediumSolidButt
 import MediumOutlineButton from "../../../../components/ui/buttons/MediumOutlineButton";
 import EditIcon from "../../../../assets/icons/edit-icon.svg";
 import DeleteIcon from "../../../../assets/icons/delete-icon.svg";
-import ProjectModal from "./project-done/ProjectModal";
+import ProjectModal from "./modals/ProjectModal";
 import { selectProject } from "../../../../store/projects/reducer";
 import { useSelector } from "react-redux";
 import Spinners from "./atoms/Spinners";
 import Success from "./atoms/Success";
 import Checkbox from "./ui/Checkbox";
-import SelectTalents from "./project-done/SelectTalents";
 import CustomRequired from "./ui/CustomRequired";
 
-const ProjectDone = ({
+const ProjectFinalize = ({
   onPrev,
   onNext,
   handleCreateProject,
   team,
   setTeam,
-  // setTalentBudgets,
 }) => {
   const [toggled, setToggled] = useState(false);
-  const [showSelectTalents, setShowSelectTalents] = useState(false);
 
   const [editIndex, setEditIndex] = useState(null);
 
@@ -33,10 +30,6 @@ const ProjectDone = ({
   const handleToggled = () => {
     setToggled(!toggled);
   };
-
-  // const handleShowSelectTalents = () => {
-  //   setShowSelectTalents(!showSelectTalents);
-  // };
 
   const handleAddTeamMember = (member) => {
     if (editIndex !== null) {
@@ -79,10 +72,6 @@ const ProjectDone = ({
   if (requestStatus === "createSuccessFull") {
     return <Success />;
   }
-
-  // if (showSelectTalents) {
-  //   return <SelectTalents onUpdateTalents={setTalentBudgets} />;
-  // }
 
   const bodyStyles = {
     paddingBottom: "5rem",
@@ -255,4 +244,4 @@ const ProjectDone = ({
   );
 };
 
-export default ProjectDone;
+export default ProjectFinalize;
