@@ -67,7 +67,6 @@
 }
 
 /* bootstrap dropdown styles override */
-
 .dropdown-toggle::after {
     display: none !important;
 
@@ -275,7 +274,6 @@ section .dropzone {
 }
 
 /* bootstrap checkbox style for specific component called ProjectDone */
-
 div .createProjectCheckbox form .form-check {
     display: flex;
     min-height: 1.5rem;
@@ -364,6 +362,18 @@ div .createProjectCheckbox form .form-check-input {
     border-radius: 3rem !important;
 }
 
+/* react-pin-input */
+.pincode-input-container .pincode-input-text {
+    width: 1.5rem !important;
+    height: 1.5rem !important;
+    margin: 0px 10px !important;
+    font-size: 40px;
+    padding: 0 !important;
+    line-height: 1.5rem;
+    background: #FFFCF5 !important;
+    border-radius: 50% !important;
+    color: #EEA20E !important;
+}
 
 /* toastify background changed */
 .Toastify__toast-theme--dark {

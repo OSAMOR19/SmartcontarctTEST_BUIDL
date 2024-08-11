@@ -94,7 +94,7 @@ const RegisterForm = () => {
       phone,
       type,
       password,
-      emailSubscription: isChecked["emailChecked"],
+      emailSubscription: isChecked["emailChecked"] || false,
     };
 
     dispatch(registerUser(registrationData));

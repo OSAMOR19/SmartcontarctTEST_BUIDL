@@ -4,6 +4,7 @@ import MediumSolidButton from "../../../../components/ui/buttons/MediumSolidButt
 import MediumOutlineButton from "../../../../components/ui/buttons/MediumOutlineButton";
 import Caution from "../../../../assets/icons/caution.svg";
 import FundWalletModal from "./modals/FundWalletModal";
+import TransactionPin from "../../components/fund-wallet/TransactionPin";
 
 const ProjectPayment = ({ talentBudgets, onNext, onPrev }) => {
   const [toggled, setToggled] = useState(false);
@@ -68,8 +69,8 @@ const ProjectPayment = ({ talentBudgets, onNext, onPrev }) => {
                   </div>
                   <span className="normalPTag fw-medium">
                     The total costing of your Project.title which is{" "}
-                    <span className="fw-bold">$9300.00</span> will be
-                    deducted from your wallet
+                    <span className="fw-bold">$9300.00</span> will be deducted
+                    from your wallet
                   </span>
                 </div>
               </div>
@@ -103,7 +104,7 @@ const ProjectPayment = ({ talentBudgets, onNext, onPrev }) => {
                 </div>
               </div>
             </div> */}
-            <FundWalletModal toggled={toggled} setToggled={setToggled} />
+            {/* <FundWalletModal toggled={toggled} setToggled={setToggled} /> */}
             <div className="pt-4 d-flex gap-2">
               <MediumOutlineButton
                 type="button"
@@ -121,9 +122,10 @@ const ProjectPayment = ({ talentBudgets, onNext, onPrev }) => {
                   marginTop: "0rem",
                   width: "6rem",
                 }}
-                onClick={onNext}
+                onClick={handleToggled}
               />
             </div>
+            <TransactionPin toggled={toggled} setToggled={setToggled} />
           </div>
         </div>
       </Col>
