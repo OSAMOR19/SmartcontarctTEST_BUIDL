@@ -82,8 +82,8 @@ a:hover {
 }
 
 .dropdown-item {
-    font-size: clamp(1rem, 1.8rem + 1.5vw, 1.25rem) !important;
-    font-weight: 600 !important;
+    font-size: 1.25rem !important;
+    font-weight: 500 !important;
     color: #ffffff !important;
 }
 
@@ -94,21 +94,8 @@ a:hover {
     border-radius: 5px !important;
 }
 
-.dropdown-menu[data-bs-popper] {
-    top: 100%;
-    margin-top: var(--bs-dropdown-spacer);
-    left: auto !important;
-}
-
 .dropdown-divider {
     border-top: 1px solid #666464 !important;
-}
-
-@media (min-width: 768px) {
-    .dropdown-menu[data-bs-popper] {
-        top: 100%;
-        left: 0 !important;
-    }
 }
 
 /* bootstrap input */
@@ -126,11 +113,6 @@ a:hover {
 .navbar-expand .navbar-nav .nav-link {
     padding-right: 0px !important;
     padding-left: 0px !important;
-}
-
-.navbar-expand .navbar-nav .dropdown-menu {
-    right: 0% !important;
-
 }
 
 ::placeholder {
@@ -319,6 +301,12 @@ div .createProjectCheckbox form .form-check-input {
     print-color-adjust: exact;
 }
 
+/*  styling bootstrap offcanvas */
+
+.offcanvas {
+    --bs-offcanvas-width: 500px !important;
+}
+
 /* styling modal for a specific component called AddTeamModal */
 .modal-content {
     position: relative;
@@ -354,12 +342,71 @@ div .createProjectCheckbox form .form-check-input {
     width: 0.05rem !important;
     height: 0.05rem !important;
     --bs-btn-close-focus-shadow: none !important;
-    background: #ffffff url(./assets/icons/close-modal-svg.svg) !important;
+    background: #EEEEEE url(./assets/icons/close-modal-svg.svg) !important;
     padding: 0.8rem !important;
     background-repeat: no-repeat !important;
     background-position: center !important;
     border: 0;
     border-radius: 3rem !important;
+}
+
+/* bootstrap table styles overrides */
+.table {
+    --bs-table-color: #ffffff !important;
+    --bs-table-bg: #272A38 !important;
+    border-color: #3F4561 !important;
+    border-radius: 0px 0px 10px 10px !important;
+}
+
+.table>:not(caption, thead)>*>* {
+    padding: .7rem .7rem !important;
+    color: #F8F8F8 !important;
+    background-color: #232634 !important;
+    border-bottom-width: 0.1rem !important;
+}
+
+/* styles for tabs on project-info page */
+.project-info .nav {
+    flex-wrap: nowrap !important;
+    gap: 2rem;
+}
+
+.project-info .nav-tabs {
+    --bs-nav-tabs-border-color: #565F87 !important;
+}
+
+.project-info .nav-link {
+    padding: 0px !important;
+    font-size: 1.25rem !important;
+    font-weight: 500 !important;
+    color: #FFFFFF !important;
+    text-decoration: none;
+    background: 0 0;
+    border: 0;
+    transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out;
+}
+
+.project-info .nav-tabs .nav-link.active {
+    color: var(--appYellow) !important;
+    background-color: transparent !important;
+    border-color: transparent !important;
+    list-style: none;
+
+}
+
+.project-info .nav-tabs .nav-link.active:after {
+    width: 40%;
+    content: "";
+    display: block;
+    margin: 0 auto;
+    padding-top: 10px;
+    border-bottom: 3px solid var(--appYellow);
+}
+
+.project-info .nav-tabs .nav-link:focus,
+.nav-tabs .nav-link:hover {
+    isolation: isolate;
+    border-color: transparent !important;
 }
 
 /* react-pin-input */
