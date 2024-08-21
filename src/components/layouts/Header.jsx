@@ -1,7 +1,5 @@
 import React, { useState } from "react";
-import { Image, Navbar, Container } from "react-bootstrap";
-import NavDropdown from "react-bootstrap/NavDropdown";
-import Nav from "react-bootstrap/Nav";
+import { Image, Navbar, Container, Dropdown } from "react-bootstrap";
 import LogoText from "../buidl-logos/LogoText";
 import images from "../../constants/images";
 import Hamburger from "../svg-components/Hamburger";
@@ -13,9 +11,9 @@ import { useSelector } from "react-redux";
 import { selectAuth } from "../../store/auth/reducer";
 
 const Header = ({ to, toggled, setToggled }) => {
-  const { user } = useSelector(selectAuth);
+  // const { user } = useSelector(selectAuth);
 
-  const username = user?.username;
+  // const username = user?.username;
 
   const [showLogout, setShowLogout] = useState(false);
 
@@ -50,58 +48,57 @@ const Header = ({ to, toggled, setToggled }) => {
 
               <Notification />
 
-              <div style={{ gap: 7 }} className="d-flex align-items-center">
-                <Nav>
-                  <NavDropdown
-                    title={
-                      <div className="d-flex align-items-center">
-                        <Image
-                          src={images.profileAvatar.src}
-                          alt={images.profileAvatar.alt}
-                          width={38}
-                          height={38}
-                        />
-                        <div className="userProfile" style={{ marginLeft: 7 }}>
-                          <span style={{ fontSize: "1rem", color: "#A0A0A0" }}>
-                            Username
-                          </span>
-                          <span
-                            style={{
-                              fontSize: "1.12rem",
-                              color: "#FFFFFF",
-                              marginTop: "-5px",
-                            }}
-                            className="fw-medium"
-                          >
-                            {username || " CharlesDesign"}
-                          </span>
-                        </div>
-                      </div>
-                    }
+              <Dropdown align={"end"} className="d-flex align-items-center">
+                <Dropdown.Toggle
+                  as={"button"}
+                  className="bg-transparent border-0"
+                >
+                  <div className="d-flex align-items-center">
+                    <Image
+                      src={images.profileAvatar.src}
+                      alt={images.profileAvatar.alt}
+                      width={38}
+                      height={38}
+                    />
+                    <div className="ms-2 d-none flex-column align-items-start  d-md-flex ">
+                      <span style={{ fontSize: "1rem", color: "#A0A0A0" }}>
+                        Username
+                      </span>
+                      <span
+                        style={{
+                          fontSize: "1.12rem",
+                          color: "#FFFFFF",
+                          marginTop: "-5px",
+                        }}
+                        className="fw-medium"
+                      >
+                        {" CharlesDesign"}
+                        {/* {username || " CharlesDesign"} */}
+                      </span>
+                    </div>
+                  </div>
+                </Dropdown.Toggle>
+                <Dropdown.Menu>
+                  <Dropdown.Item
                     as="span"
-                    id="nav-dropdown"
+                    style={{
+                      cursor: "pointer",
+                    }}
                   >
-                    <NavDropdown.Item
-                      as="span"
-                      style={{
-                        cursor: "pointer",
-                      }}
-                    >
-                      Profile
-                    </NavDropdown.Item>
-                    <NavDropdown.Divider />
-                    <NavDropdown.Item
-                      as="span"
-                      style={{
-                        cursor: "pointer",
-                      }}
-                      onClick={() => setShowLogout(!showLogout)}
-                    >
-                      Log Out
-                    </NavDropdown.Item>
-                  </NavDropdown>
-                </Nav>
-              </div>
+                    Profile
+                  </Dropdown.Item>
+                  <Dropdown.Divider />
+                  <Dropdown.Item
+                    as="span"
+                    style={{
+                      cursor: "pointer",
+                    }}
+                    onClick={() => setShowLogout(!showLogout)}
+                  >
+                    Log Out
+                  </Dropdown.Item>
+                </Dropdown.Menu>
+              </Dropdown>
             </div>
           </Navbar.Collapse>
         </Container>
