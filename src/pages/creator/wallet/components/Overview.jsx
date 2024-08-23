@@ -1,11 +1,23 @@
-import React from "react";
+import { useState } from "react";
 import { Container, Row, Col, Button } from "react-bootstrap";
 import WalletIcon from "../../../../assets/icons/wallet-icon.svg";
 import BuidlIcon from "../../../../assets/icons/buidl-icon.svg";
 import FiatIcon from "../../../../assets/icons/fiat-icon.svg";
 import BuidlCoin from "../../../../assets/icons/buidl-coin.svg";
+import useWallet from "../../../../hooks/useWallet";
+import FundModal from "./FundModal";
+import WithdrawModal from "./WithdrawModal";
 
 function Overview() {
+  const [showFundModal, setShowFundModal] = useState(false);
+  const [showWithdrawModal, setShowWithdrawModal] = useState(false);
+  const handleShowFundModal = () => {
+    setShowFundModal(!showFundModal);
+  };
+  const handleShowWithdrawModal = () => {
+    setShowWithdrawModal(!showWithdrawModal);
+  };
+
   const cardBody = {
     backgroundColor: "#222532",
     padding: "1rem 1rem ",
@@ -43,6 +55,8 @@ function Overview() {
     width: 100 + "%",
   };
 
+  const { balance, tokenBalance, address } = useWallet();
+
   return (
     <Container>
       <div style={cardBody}>
@@ -71,11 +85,11 @@ function Overview() {
                           fontWeight: "700",
                         }}
                       >
-                        8.700
+                        {tokenBalance}
                       </span>
                     </div>
                     <span style={{ color: "#999999", fontSize: "1rem" }}>
-                      ~ $ 93.00
+                      ~ $ 00.00
                     </span>
                   </div>
                 </div>
@@ -83,12 +97,22 @@ function Overview() {
               <Col lg={6}>
                 <Row>
                   <Col>
-                    <Button type="outline" style={fundBtn} size="sm">
+                    <Button
+                      type="outline"
+                      style={fundBtn}
+                      size="sm"
+                      onClick={handleShowFundModal}
+                    >
                       Fund Wallet
                     </Button>{" "}
                   </Col>
                   <Col>
-                    <Button type="outline" style={withdrawBtn} size="sm">
+                    <Button
+                      type="outline"
+                      style={withdrawBtn}
+                      size="sm"
+                      onClick={handleShowWithdrawModal}
+                    >
                       Withdraw
                     </Button>
                   </Col>
@@ -108,7 +132,7 @@ function Overview() {
                     <FiatIcon />
                   </div>
                   <div className="d-flex flex-column gap-3">
-                    <span style={{ color: "#999999" }}>Total Balance</span>
+                    <span style={{ color: "#999999" }}>ETH Balance</span>
                     <h6
                       style={{
                         color: "#ffffff",
@@ -118,7 +142,7 @@ function Overview() {
                         fontWeight: "700",
                       }}
                     >
-                      $ 8700.00
+                      {balance} ETH
                     </h6>
                   </div>
                 </div>
@@ -133,7 +157,7 @@ function Overview() {
                   </div>
                   <div className="d-flex flex-column gap-3">
                     <span style={{ color: "#999999", fontSize: 0.8 + "rem" }}>
-                      Total Balance
+                      BUILDS Balance
                     </span>
                     <h6
                       style={{
@@ -144,7 +168,7 @@ function Overview() {
                         fontWeight: "700",
                       }}
                     >
-                      0.0920
+                      {tokenBalance} BUILDS
                     </h6>
                   </div>
                 </div>
@@ -153,6 +177,16 @@ function Overview() {
           </Col>
         </Row>
       </div>
+      <FundModal
+        showFundModal={showFundModal}
+        handleShowFundModal={handleShowFundModal}
+        address={address}
+      />
+      <WithdrawModal
+        showWithdrawModal={showWithdrawModal}
+        handleShowWithdrawModal={handleShowWithdrawModal}
+        address={address}
+      />
     </Container>
   );
 }
