@@ -20,6 +20,7 @@ import CreatorDashboard from "../pages/creator/dashboard";
 import CreateProject from "../pages/creator/create-project";
 import Projects from "../pages/creator/projects";
 import ProjectDetails from "../pages/creator/project-details";
+import ProjectInfo from "../pages/creator/project-info";
 import Wallet from "../pages/creator/wallet";
 import MultiAiTools from "../pages/creator/multi-al";
 import PartnerDirectories from "../pages/creator/partner-directories";
@@ -61,6 +62,11 @@ const RootRouter = () => {
           exact
           path="/creator/project/details/:id"
           element={<ProjectDetails />}
+        />
+        <Route
+          exact
+          path="/creator/project/info/:id"
+          element={<ProjectInfo />}
         />
         <Route exact path="/creator/wallet" element={<Wallet />} />
         <Route exact path="/creator/multi-ai" element={<MultiAiTools />} />

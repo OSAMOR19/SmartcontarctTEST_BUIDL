@@ -14,10 +14,8 @@ const Buidl = () => {
   const navigate = useNavigate();
 
   const handleClick = (type) => {
-    if (type !== "freelancer") {
-      dispatch(resetAuthState());
-      navigate(`/auth/register?type=${type}`);
-    }
+    dispatch(resetAuthState());
+    navigate(`/auth/register?type=${type}`);
   };
 
   return (

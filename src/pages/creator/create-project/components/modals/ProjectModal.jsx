@@ -60,13 +60,18 @@ const ProjectModal = ({
 
   const selectRole = [
     { value: "", label: "Select Role" },
-    { value: "frontend developer", label: "Frontend Developer" },
-    { value: "backend developer", label: "Backend Developer" },
-    { value: "product designer", label: "Product Designer" },
+    { value: "Frontend developer", label: "Frontend Developer" },
+    { value: "Backend developer", label: "Backend Developer" },
+    { value: "Product designer", label: "Product Designer" },
   ];
 
   return (
-    <Modal show={toggled} onHide={handleClose}>
+    <Modal
+      show={toggled}
+      onHide={handleClose}
+      centered
+      className="modalBgColor"
+    >
       <Modal.Header closeButton>
         <Modal.Title>
           {editMember ? "Edit Team Member" : "Add Team Member"}
@@ -130,6 +135,7 @@ const ProjectModal = ({
       </Modal.Body>
       <Modal.Footer>
         <MediumSolidButton
+          disabled={!name || !email || !role}
           type="button"
           text="Save"
           style={{

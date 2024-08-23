@@ -24,6 +24,7 @@ const initialState = {
     isCompleted: false,
     updatedAt: null,
     userId: null,
+    projectResources: null,
   },
   allProjects: null,
   requestStatus: "idle",
@@ -79,6 +80,39 @@ export const getProjectById = createAsyncThunk(
   }
 );
 
+export const addNewTeam = createAsyncThunk(
+  `${name}/addNewTeam`,
+  async (newTeamData) => {
+    if (!newTeamData) return;
+    try {
+      const response = await apiClient.post(`creators/add`, newTeamData);
+      if (response.status === 200 && response.data) {
+        return response.data;
+      } else {
+        throw new Error("Failed to fetch project");
+      }
+    } catch (err) {
+      authErrorHandler(err);
+    }
+  }
+);
+
+export const getProjectResources = createAsyncThunk(
+  `${name}/getProjectResources`,
+  async (projectId) => {
+    try {
+      const response = await apiClient.get(`resources/all/${projectId}`);
+      if (response.status === 200 && response.data) {
+        return response.data;
+      } else {
+        throw new Error("Failed to fetch project");
+      }
+    } catch (err) {
+      authErrorHandler(err);
+    }
+  }
+);
+
 const ProjectSlice = createSlice({
   name,
   initialState,
@@ -101,8 +135,7 @@ const ProjectSlice = createSlice({
         updatedAt: null,
         userId: null,
       };
-      state.message = "", 
-      state.requestStatus = "idle";
+      (state.message = ""), (state.requestStatus = "idle");
       state.error = "";
     },
   },
@@ -110,6 +143,7 @@ const ProjectSlice = createSlice({
     // create project builder
     builder.addCase(createProject.pending, (state) => {
       state.requestStatus = "loading";
+      console.log("fess requestStatus");
     });
     builder.addCase(createProject.rejected, (state, action) => {
       state.error = action.error.message;
@@ -119,6 +153,7 @@ const ProjectSlice = createSlice({
     builder.addCase(createProject.fulfilled, (state, action) => {
       state.project = action.payload.data.project;
       state.requestStatus = "createSuccessFull";
+      console.log("second requestStatus");
     });
     // get all projects builder
     builder.addCase(getAllProjects.pending, (state) => {
@@ -144,6 +179,32 @@ const ProjectSlice = createSlice({
     builder.addCase(getProjectById.fulfilled, (state, action) => {
       state.project = action.payload.data.project;
       state.requestStatus = "getByIdSuccessFull";
+    });
+    // get project resources by id
+    builder.addCase(getProjectResources.pending, (state) => {
+      state.requestStatus = "loading";
+    });
+    builder.addCase(getProjectResources.rejected, (state, action) => {
+      state.error = action.error.message;
+      state.requestStatus = "failed";
+    });
+    builder.addCase(getProjectResources.fulfilled, (state, action) => {
+      state.project.projectResources = action.payload.data.project;
+      // console.log(state.project.projectResources);
+      state.requestStatus = "getProjectResourcesSuccessFull";
+    });
+    // add new team
+    builder.addCase(addNewTeam.pending, (state) => {
+      state.requestStatus = "loading";
+    });
+    builder.addCase(addNewTeam.rejected, (state, action) => {
+      state.error = action.error.message;
+      state.requestStatus = "failed";
+    });
+    builder.addCase(addNewTeam.fulfilled, (state, action) => {
+      // state.project.projectResources = action.payload.data.project;
+      console.log(action.payload.data.project);
+      state.requestStatus = "addNewTeamSuccessFull";
     });
   },
 });

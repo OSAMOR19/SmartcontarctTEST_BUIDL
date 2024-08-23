@@ -5,16 +5,25 @@ import MediumSolidButton from "../../../../components/ui/buttons/MediumSolidButt
 import LabelTextarea from "../../../../components/ui/textareas/LabelTextarea";
 import LabelSelect from "../../../../components/ui/selects/LabelSelect";
 import CustomRequired from "./ui/CustomRequired";
+import useNavigateOnSuccess from "../useNavigateOnSuccess";
+import { useSelector } from "react-redux";
+import { selectProject } from "../../../../store/projects/reducer";
+import Spinners from "./atoms/Spinners";
 
 const ProjectDetails = ({
+  onNext,
   title,
   handleTitleChange,
   duration,
   handleDurationSelectChange,
   projectDescription,
   handleProjectDescriptionChange,
-  onNext,
+  handleCreateProject,
 }) => {
+  useNavigateOnSuccess("createSuccessFull", "/creator/dashboard");
+
+  const { requestStatus } = useSelector(selectProject);
+
   const selectDuration = [
     { value: "", label: "Select project duration" },
     { value: "1", label: "1 month" },
@@ -36,79 +45,89 @@ const ProjectDetails = ({
     borderRadius: 14 + "px",
   };
 
-  return (
-    <Container style={bodyStyles}>
-      <Col style={colStyles}>
-        <div className="d-flex flex-column align-items-center justify-content-center">
-          <div style={{ width: 100 + "%" }} className="centerForm">
-            <div>
-              <h2 className="strongH2Tag">Project Details</h2>
-              <p className="normalPTag">
-                Create diverse projects and collaborate seamlessly with your
-                team using AI. Buidl welcomes all genres of projects, from
-                entertainment and dApps to content creation and more!
-              </p>
-              <LineProgressOne />
-            </div>
+  const handleSaveAndContinueLater = () => {
+    if (title && duration) {
+      handleCreateProject();
+    }
+  };
 
-            <div className="d-flex flex-column gap-4">
-              <div className="pt-4">
-                <InputLabel
-                  label={<CustomRequired text="Project title" />}
-                  id="projectTitle"
-                  name="projectTitle"
-                  type="text"
-                  required={true}
-                  placeholder="Enter your project title"
-                  value={title}
-                  onChange={handleTitleChange}
-                />
+  return (
+    <>
+      {requestStatus === "loading" && <Spinners showSpinner={true} />}
+      <Container style={bodyStyles}>
+        <Col style={colStyles}>
+          <div className="d-flex flex-column align-items-center justify-content-center">
+            <div style={{ width: 100 + "%" }} className="centerForm">
+              <div>
+                <h2 className="strongH2Tag">Project Details</h2>
+                <p className="normalPTag">
+                  Create diverse projects and collaborate seamlessly with your
+                  team using AI. Buidl welcomes all genres of projects, from
+                  entertainment and dApps to content creation and more!
+                </p>
+                <LineProgressOne />
               </div>
 
-              <LabelSelect
-                label={<CustomRequired text="Project Duration" />}
-                id="projectDuration"
-                name="projectDuration"
-                options={selectDuration}
-                value={duration}
-                onChange={handleDurationSelectChange}
-              />
+              <div className="d-flex flex-column gap-4">
+                <div className="pt-4">
+                  <InputLabel
+                    label={<CustomRequired text="Project title" />}
+                    id="projectTitle"
+                    name="projectTitle"
+                    type="text"
+                    required={true}
+                    placeholder="Enter your project title"
+                    value={title}
+                    onChange={handleTitleChange}
+                  />
+                </div>
 
-              <LabelTextarea
-                label="Project Description"
-                value={projectDescription}
-                onChange={handleProjectDescriptionChange}
-                id="jobDescription"
-                placeholder="Enter your project description"
-                rows={3}
-              />
-            </div>
-            <div className="d-flex pt-5 align-items-center flex-wrap justify-content-between">
-              <MediumSolidButton
-                disabled={!title || !duration}
-                type="button"
-                text="Next"
-                style={{
-                  marginTop: "0rem",
-                  width: "6rem",
-                }}
-                onClick={onNext}
-              />
-              <span
-                className="normalPTag fw-medium"
-                style={{
-                  color: "#EEA20E",
-                  cursor: "pointer",
-                }}
-                onClick={onNext}
-              >
-                Save & Continue later
-              </span>
+                <LabelSelect
+                  label={<CustomRequired text="Project Duration" />}
+                  id="projectDuration"
+                  name="projectDuration"
+                  options={selectDuration}
+                  value={duration}
+                  onChange={handleDurationSelectChange}
+                />
+
+                <LabelTextarea
+                  label="Project Description"
+                  value={projectDescription}
+                  onChange={handleProjectDescriptionChange}
+                  id="jobDescription"
+                  placeholder="Enter your project description"
+                  rows={3}
+                />
+              </div>
+              <div className="d-flex pt-5 align-items-center flex-wrap justify-content-between">
+                <MediumSolidButton
+                  disabled={!title || !duration}
+                  type="button"
+                  text="Next"
+                  style={{
+                    marginTop: "0rem",
+                    width: "6rem",
+                  }}
+                  onClick={onNext}
+                />
+                <span
+                  className="normalPTag fw-medium"
+                  style={{
+                    color: "#EEA20E",
+                    cursor: title && duration ? "pointer" : "",
+                    opacity: title && duration ? 1 : 0.5,
+                  }}
+                  onClick={handleSaveAndContinueLater}
+                >
+                  Save & Continue later
+                </span>
+              </div>
             </div>
           </div>
-        </div>
-      </Col>
-    </Container>
+        </Col>
+      </Container>
+    </>
   );
 };
 

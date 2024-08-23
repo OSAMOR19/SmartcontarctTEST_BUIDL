@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Container, Col } from "react-bootstrap";
 import PureSelect from "../../../../components/ui/selects/PureSelect";
 import InputField from "../../../../components/ui/inputs/InputField";
@@ -16,6 +16,13 @@ const SelectTalents = ({
   const [talentEntries, setTalentEntries] = useState([
     { talent: "", budget: "$" },
   ]);
+
+  // Ensure the state persists when coming back to this step
+  useEffect(() => {
+    if (talentBudgets.length > 0) {
+      setTalentEntries(talentBudgets);
+    }
+  }, [talentBudgets]);
 
   const handleTalentsChange = (index, value) => {
     const newTalentEntries = [...talentEntries];
@@ -42,6 +49,11 @@ const SelectTalents = ({
       onUpdateTalents(newTalentEntries);
     }
   };
+
+  // Validation function for enabling the Proceed button
+  const canProceed = talentEntries.every(
+    (entry) => entry.talent && entry.budget !== "$"
+  );
 
   const selectTalents = [
     { value: "", label: "Select Role" },
@@ -122,7 +134,7 @@ const SelectTalents = ({
                 onClick={onPrev}
               />
               <MediumSolidButton
-                disabled={!talentBudgets.length}
+                disabled={!canProceed}
                 type="button"
                 text="Proceed"
                 style={{

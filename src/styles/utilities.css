@@ -13,6 +13,14 @@
     color: var(--appWhite);
 }
 
+.useAppCursor {
+    cursor: pointer;
+}
+
+.modalBgColor {
+    background: rgba(69, 75, 101, 0.6);
+}
+
 .fullHeightWithColorBg {
     width: 100%;
     min-height: 100vh;
@@ -88,6 +96,28 @@
     color: #EEA20E !important;
 }
 
-.userProfile {
-    display: none !important;
+.extraSolidButton {
+    padding-top: 0.2rem !important;
+    padding-bottom: 0.2rem !important;
+    padding-left: 0.5rem !important;
+    padding-right: 0.5rem !important;
+    font-size: 0.9rem !important;
+    font-weight: 600 !important;
+    color: #222532 !important;
+    background-color: var(--appYellow) !important;
+    border: 1px solid var(--appYellow) !important;
+    border-radius: 26.22px !important;
+}
+
+.extraOutlinedButton {
+    padding-top: 0.2rem !important;
+    padding-bottom: 0.2rem !important;
+    padding-left: 0.5rem !important;
+    padding-right: 0.5rem !important;
+    font-size: 0.9rem !important;
+    font-weight: 600 !important;
+    background-color: transparent !important;
+    border: 1px solid var(--appYellow) !important;
+    border-radius: 26.22px !important;
+    color: #EEA20E !important;
 }

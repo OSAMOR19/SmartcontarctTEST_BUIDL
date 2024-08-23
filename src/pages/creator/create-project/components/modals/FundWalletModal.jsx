@@ -23,7 +23,12 @@ const FundWalletModal = ({ toggled, setToggled }) => {
     borderRadius: "14px",
   };
   return (
-    <Modal show={toggled} onHide={handleCloseModal} centered>
+    <Modal
+      show={toggled}
+      onHide={handleCloseModal}
+      centered
+      className="modalBgColor"
+    >
       <Modal.Header closeButton>
         <Modal.Title>Fund Wallet</Modal.Title>
       </Modal.Header>

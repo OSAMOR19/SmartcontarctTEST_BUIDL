@@ -13,6 +13,7 @@ function useMultiStepForm() {
 
   return {
     currentStep,
+    setCurrentStep,
     nextStep,
     prevStep,
   };

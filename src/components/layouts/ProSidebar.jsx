@@ -32,9 +32,10 @@ const ProSidebar = ({
               backgroundColor: active ? "#EEA20E" : "transparent",
               color: active ? "#16192A" : "#FFFFFF",
             },
-            borderRadius: "21px",
+            borderRadius: "14px",
             padding: "0px 2px",
-            fontSize: "clamp(0.8rem, 0.8rem + 1.5vw, 1.1rem)",
+            fontSize: "1.25rem",
+            fontWeight: 500,
             marginBottom: "0.9rem",
             "@media (min-width: 768px)": {
               marginBottom: "0.5rem",

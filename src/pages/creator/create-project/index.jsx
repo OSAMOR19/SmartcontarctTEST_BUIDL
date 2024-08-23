@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { createProject } from "../../../store/projects/reducer";
 import CreatorLayout from "../components/layouts";
@@ -10,6 +10,7 @@ import useMultiStepForm from "../../../hooks/useMultiStepForm";
 import EnhancedBreadcrumb from "../components/layouts/EnhancedBreadcrumb ";
 import SelectTalents from "./components/SelectTalents";
 import ProjectPayment from "./components/ProjectPayment";
+import { useSearchParams } from "react-router-dom";
 
 const CreateProject = () => {
   const dispatch = useDispatch();
@@ -19,8 +20,29 @@ const CreateProject = () => {
   const [projectDescription, setProjectDescription] = useState("");
   const [files, setFiles] = useState([]);
   const [team, setTeam] = useState([]);
-
   const [talentBudgets, setTalentBudgets] = useState([]);
+
+  const filesHelper = files;
+
+  const [searchParams] = useSearchParams();
+  const projectId = searchParams.get("id");
+
+  const getEditBudgetStep = parseInt(searchParams.get("step"), 10);
+
+  useEffect(() => {
+    if (projectId) {
+      setTitle(project.title);
+      setDuration(project.duration);
+      setProjectDescription(project.description);
+      setTalentBudgets(project.talentBudgets);
+
+      if (getEditBudgetStep) {
+        setCurrentStep(getEditBudgetStep);
+      } else {
+        setCurrentStep(project.lastSavedStep);
+      }
+    }
+  }, [projectId, getEditBudgetStep]);
 
   const handleTitleChange = (e) => {
     setTitle(e.target.value);
@@ -35,6 +57,13 @@ const CreateProject = () => {
     setFiles(acceptedFiles);
   };
 
+  const calculateTotalBudget = () => {
+    return talentBudgets.reduce((total, entry) => {
+      const numericBudget = parseFloat(entry.budget.replace(/[^0-9.]/g, ""));
+      return total + (isNaN(numericBudget) ? 0 : numericBudget);
+    }, 0);
+  };
+
   const handleCreateProject = async () => {
     const documents = await Promise.all(
       files.map(async (file) => {
@@ -42,7 +71,7 @@ const CreateProject = () => {
         return {
           filename: file.name,
           contentType: file.type,
-          base64: base64.split(",")[1],
+          base64: base64,
         };
       })
     );
@@ -53,10 +82,10 @@ const CreateProject = () => {
       description: projectDescription,
       documents,
       team,
-      talentBudgets,
+      // talentBudgets,
     };
-    console.log(projectData);
-    // dispatch(createProject(projectData));
+    // console.log(projectData);
+    dispatch(createProject(projectData));
 
     // Reset project fields
     clearProjectState();
@@ -69,7 +98,8 @@ const CreateProject = () => {
     setTeam([]);
   }
 
-  const { currentStep, nextStep, prevStep } = useMultiStepForm();
+  const { currentStep, setCurrentStep, nextStep, prevStep } =
+    useMultiStepForm();
 
   return (
     <div className="fullHeightWithColorBg">
@@ -78,6 +108,7 @@ const CreateProject = () => {
       {currentStep === 1 && (
         <ProjectDetails
           onNext={nextStep}
+          handleCreateProject={handleCreateProject}
           title={title}
           handleTitleChange={handleTitleChange}
           duration={duration}
@@ -89,8 +120,10 @@ const CreateProject = () => {
       {currentStep === 2 && (
         <ProjectFiles
           onFilesAccepted={handleFilesAccepted}
+          handleCreateProject={handleCreateProject}
           onNext={nextStep}
           onPrev={prevStep}
+          filesHelper={filesHelper}
         />
       )}
       {currentStep === 3 && (
@@ -116,10 +149,39 @@ const CreateProject = () => {
           onNext={nextStep}
           onPrev={prevStep}
           talentBudgets={talentBudgets}
+          totalBudget={calculateTotalBudget()}
+          projectTitle={title}
         />
       )}
     </div>
   );
+};
+
+const project = {
+  id: 1,
+  title: "Shopify e-commerce System",
+  description: "I love you boss",
+  duration: 4,
+  progress: 0,
+  team: 0,
+  lastSavedStep: 2,
+  talentBudgets: [
+    {
+      id: 1,
+      role: "Frontend Developer",
+      budget: 1000,
+      applicant: 12,
+      status: "hired",
+    },
+    {
+      id: 2,
+      role: "Backend Developer",
+      budget: 500,
+      applicant: 9,
+      status: "notHired",
+    },
+  ],
+  status: "draft",
 };
 
 export default CreateProject;

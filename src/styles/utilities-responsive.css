@@ -35,27 +35,9 @@
     padding-bottom: 0.5rem !important;
   }
 
-  .userProfile {
-    display: inline;
-  }
-
-  .userProfile {
-    display: flex !important;
-    flex-direction: column !important;
-  }
-
   .centerForm {
     margin-top: 1.0rem;
     width: 50% !important;
   }
 
-}
-
-/* trying to manipulate things on steps and continue */
-
-@media (min-width: 520px) {
-  .stepsTouch {
-    display: flex;
-    flex-direction: row;
-  }
 }

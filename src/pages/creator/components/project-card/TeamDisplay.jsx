@@ -2,10 +2,10 @@ import { Image } from "react-bootstrap";
 import images from "../../../../constants/images";
 
 const TeamDisplay = ({ team }) => {
-  if (team === 0) return null;
+  if (!team || team.length === 0) return null;
 
   const teamInfo =
-    team === 1 ? (
+    team.length === 1 ? (
       <div className="d-flex gap-2 align-items-center">
         <Image
           src={images.noTeam.src}
@@ -44,7 +44,9 @@ const TeamDisplay = ({ team }) => {
           />
         </div>
         <div>
-          <span className="fw-medium">{`+${team - 2} Applicants`}</span>
+          <span className="useAppWhite fw-medium">{`+${
+            team - 2
+          } Applicants`}</span>
         </div>
       </div>
     );

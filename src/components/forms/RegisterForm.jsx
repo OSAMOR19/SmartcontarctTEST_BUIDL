@@ -26,10 +26,7 @@ const RegisterForm = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (
-      selectedType &&
-      !(selectedType === "builder" || selectedType === "freelancer")
-    ) {
+    if (selectedType !== "builder" && selectedType !== "freelancer") {
       navigate("/");
     }
   }, [selectedType]);

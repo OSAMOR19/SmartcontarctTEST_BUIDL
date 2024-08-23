@@ -6,7 +6,13 @@ import Caution from "../../../../assets/icons/caution.svg";
 import FundWalletModal from "./modals/FundWalletModal";
 import TransactionPin from "../../components/fund-wallet/TransactionPin";
 
-const ProjectPayment = ({ talentBudgets, onNext, onPrev }) => {
+const ProjectPayment = ({
+  talentBudgets,
+  onNext,
+  onPrev,
+  totalBudget,
+  projectTitle,
+}) => {
   const [toggled, setToggled] = useState(false);
   const handleToggled = () => {
     setToggled(!toggled);
@@ -59,7 +65,7 @@ const ProjectPayment = ({ talentBudgets, onNext, onPrev }) => {
             </div>
             <div className="d-flex align-items-center justify-content-between p-3">
               <span className="normalPTag fw-semibold">Total Costing</span>
-              <span className="normalPTag fs-4 fw-bold">$200</span>
+              <span className="normalPTag fs-4 fw-bold">{`$${totalBudget}`}</span>
             </div>
             <div className="pt-4 pb-4">
               <div style={divStyles} className="d-flex flex-column gap-2 p-3">
@@ -68,14 +74,15 @@ const ProjectPayment = ({ talentBudgets, onNext, onPrev }) => {
                     <Caution />
                   </div>
                   <span className="normalPTag fw-medium">
-                    The total costing of your Project.title which is{" "}
-                    <span className="fw-bold">$9300.00</span> will be deducted
-                    from your wallet
+                    The total costing of your project{" "}
+                    <span className="fw-bold">{projectTitle}</span> which is{" "}
+                    <span className="fw-bold">{`$${totalBudget}.00`}</span> will
+                    be deducted from your wallet
                   </span>
                 </div>
               </div>
             </div>
-            {/* <div className="pt-4 pb-4">
+            <div className="pt-4 pb-4">
               <div style={divStyles} className="d-flex flex-column gap-2 p-3">
                 <div className="d-flex gap-2 align-items-center">
                   <div>
@@ -103,8 +110,8 @@ const ProjectPayment = ({ talentBudgets, onNext, onPrev }) => {
                   </div>
                 </div>
               </div>
-            </div> */}
-            {/* <FundWalletModal toggled={toggled} setToggled={setToggled} /> */}
+            </div>
+            <FundWalletModal toggled={toggled} setToggled={setToggled} />
             <div className="pt-4 d-flex gap-2">
               <MediumOutlineButton
                 type="button"
@@ -125,7 +132,6 @@ const ProjectPayment = ({ talentBudgets, onNext, onPrev }) => {
                 onClick={handleToggled}
               />
             </div>
-            <TransactionPin toggled={toggled} setToggled={setToggled} />
           </div>
         </div>
       </Col>

@@ -15,7 +15,10 @@ const Header = ({ to, toggled, setToggled }) => {
 
   const username = user?.username;
 
-  const [showLogout, setShowLogout] = useState(false);
+  const [showLogoutModal, setShowLogoutModal] = useState(false);
+  const handleShowLogoutModal = () => {
+    setShowLogoutModal(!showLogoutModal);
+  };
 
   const [showModal, setShowModal] = useState(false);
 
@@ -24,7 +27,6 @@ const Header = ({ to, toggled, setToggled }) => {
 
   return (
     <>
-      <LogOutModal showLogout={showLogout} setShowLogout={setShowLogout} />
       <Navbar
         fixed="top"
         className="Header w-100"
@@ -78,21 +80,14 @@ const Header = ({ to, toggled, setToggled }) => {
                   </div>
                 </Dropdown.Toggle>
                 <Dropdown.Menu>
-                  <Dropdown.Item
-                    as="span"
-                    style={{
-                      cursor: "pointer",
-                    }}
-                  >
+                  <Dropdown.Item as="span" className="useAppCursor">
                     Profile
                   </Dropdown.Item>
                   <Dropdown.Divider />
                   <Dropdown.Item
                     as="span"
-                    style={{
-                      cursor: "pointer",
-                    }}
-                    onClick={() => setShowLogout(!showLogout)}
+                    className="useAppCursor"
+                    onClick={handleShowLogoutModal}
                   >
                     Log Out
                   </Dropdown.Item>
@@ -102,6 +97,10 @@ const Header = ({ to, toggled, setToggled }) => {
           </Navbar.Collapse>
         </Container>
       </Navbar>
+      <LogOutModal
+        showLogoutModal={showLogoutModal}
+        handleShowLogoutModal={handleShowLogoutModal}
+      />
     </>
   );
 };

@@ -1,4 +1,4 @@
-import { Container, Col } from "react-bootstrap";
+import { Container, Modal } from "react-bootstrap";
 import LogOutCaution from "../../assets/icons/logout-caution.svg";
 import MediumSolidButton from "../ui/buttons/MediumSolidButton";
 import MediumOutlineButton from "../ui/buttons/MediumOutlineButton";
@@ -6,7 +6,7 @@ import { useDispatch } from "react-redux";
 import { logoutUser } from "../../store/auth/reducer";
 import { useNavigate } from "react-router-dom";
 
-const LogOutModal = ({ showLogout, setShowLogout }) => {
+const LogOutModal = ({ showLogoutModal, handleShowLogoutModal }) => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -16,36 +16,24 @@ const LogOutModal = ({ showLogout, setShowLogout }) => {
     navigate("/auth/login");
   };
 
-  const bodyStyles = {
-    backgroundColor: "rgba(39, 42, 56, 0.79)",
-    display: `${showLogout ? "block" : "none"}`,
-    zIndex: "50",
-  };
-
-  const divStyles = {
-    padding: "2rem",
-    background: "#21232F",
-    borderRadius: "8.43px",
-    maxWidth: "457px",
-    margin: "auto",
+  const btnStyles = {
+    marginTop: "0rem",
+    width: "6rem",
   };
 
   return (
-    <Container fluid className="position-fixed" style={bodyStyles}>
-      <section className="min-vh-100 d-flex justify-content-center align-items-center">
-        <div
-          className="d-flex flex-column align-items-center gap-4"
-          style={divStyles}
-        >
+    <Modal
+      show={showLogoutModal}
+      onHide={handleShowLogoutModal}
+      centered
+      className="modalBgColor"
+    >
+      <Modal.Body>
+        <div className="py-5 d-flex flex-column align-items-center gap-4">
           <div>
             <LogOutCaution />
           </div>
-          <h5
-            style={{
-              color: "#ffffff",
-            }}
-            className="fw-bold"
-          >
+          <h5 className="useAppWhite fw-bold">
             Are you sure you want to Log out
           </h5>
           <div>
@@ -53,26 +41,20 @@ const LogOutModal = ({ showLogout, setShowLogout }) => {
               <MediumOutlineButton
                 type="button"
                 text="No"
-                style={{
-                  marginTop: "0rem",
-                  width: "6rem",
-                }}
-                onClick={() => setShowLogout(false)}
+                style={btnStyles}
+                onClick={handleShowLogoutModal}
               />
               <MediumSolidButton
                 type="button"
                 text="Yes"
-                style={{
-                  marginTop: "0rem",
-                  width: "6rem",
-                }}
+                style={btnStyles}
                 onClick={handleLogout}
               />
             </div>
           </div>
         </div>
-      </section>
-    </Container>
+      </Modal.Body>
+    </Modal>
   );
 };
 
