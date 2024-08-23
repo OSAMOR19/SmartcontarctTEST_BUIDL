@@ -11,9 +11,9 @@ import { useSelector } from "react-redux";
 import { selectAuth } from "../../store/auth/reducer";
 
 const Header = ({ to, toggled, setToggled }) => {
-  // const { user } = useSelector(selectAuth);
+  const { user } = useSelector(selectAuth);
 
-  // const username = user?.username;
+  const username = user?.username;
 
   const [showLogout, setShowLogout] = useState(false);
 
@@ -72,8 +72,7 @@ const Header = ({ to, toggled, setToggled }) => {
                         }}
                         className="fw-medium"
                       >
-                        {" CharlesDesign"}
-                        {/* {username || " CharlesDesign"} */}
+                        {username || "CharlesDesign"}
                       </span>
                     </div>
                   </div>
