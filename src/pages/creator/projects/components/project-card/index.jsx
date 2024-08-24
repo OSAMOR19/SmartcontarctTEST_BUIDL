@@ -2,6 +2,7 @@ import { Form } from "react-bootstrap";
 import { Link, useNavigate } from "react-router-dom";
 // import CreatorProgressLabel from "./CreatorProgressLabel";
 import TeamDisplay from "./TeamDisplay";
+import CustomProgressBar from "./CustomProgressBar";
 
 const ProjectCard = ({ project }) => {
   const {
@@ -158,8 +159,7 @@ const ProjectCard = ({ project }) => {
               style={cardFooterStyles}
               className="d-flex align-items-center justify-content-between"
             >
-              {/* <CreatorProgressLabel progress={progress} /> */}
-              <span>Hello</span>
+              <CustomProgressBar progress={progress} />
               <TeamDisplay team={team} />
             </div>
           </div>
