@@ -1,6 +1,7 @@
 import { Link, useNavigate } from "react-router-dom";
 // import CreatorProgressLabel from "./CreatorProgressLabel";
 import TeamDisplay from "./TeamDisplay";
+import ProgressBar from "./ProgressBar";
 
 const ProjectCard = ({ project }) => {
   const { id, title, description, duration, progress, team, status } = project;
@@ -113,6 +114,7 @@ const ProjectCard = ({ project }) => {
             className="d-flex align-items-center justify-content-between"
           >
             {/* <CreatorProgressLabel progress={progress} /> */}
+            <ProgressBar />
             <span>Hello</span>
             <TeamDisplay team={team} />
           </div>
