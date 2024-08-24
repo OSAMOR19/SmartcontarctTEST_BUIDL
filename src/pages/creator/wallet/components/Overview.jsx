@@ -38,7 +38,6 @@ function Overview() {
     backgroundColor: "#EEA20E",
     border: "1px solid #EEA20E",
     color: "#ffffff",
-    fontSize: 1 + "rem",
     padding: 0.5 + "rem",
     fontWeight: "600",
     width: 100 + "%",
@@ -49,7 +48,6 @@ function Overview() {
     backgroundColor: "transparent",
     border: "1px solid #EEA20E",
     color: "#EEA20E",
-    fontSize: 1 + "rem",
     fontWeight: "600",
     padding: 0.5 + "rem",
     width: 100 + "%",
@@ -101,34 +99,31 @@ function Overview() {
                   </div>
                 </Col>
                 <Col lg={6}>
-                  <Row>
-                    <Col>
-                      <Button
-                        type="outline"
-                        style={fundBtn}
-                        size="sm"
-                        onClick={handleShowFundModal}
-                      >
-                        Fund Wallet
-                      </Button>
-                    </Col>
-                    <Col>
-                      <Button
-                        type="outline"
-                        style={withdrawBtn}
-                        size="sm"
-                        onClick={handleShowWithdrawModal}
-                      >
-                        Withdraw
-                      </Button>
-                    </Col>
-                  </Row>
+                  <div className="d-flex gap-3">
+                    <Button
+                      type="outline"
+                      style={fundBtn}
+                      className="fs-6"
+                      onClick={handleShowFundModal}
+                    >
+                      Fund Wallet
+                    </Button>
+                    <Button
+                      type="outline"
+                      style={withdrawBtn}
+                      // size="sm"
+                      className="fs-6"
+                      onClick={handleShowWithdrawModal}
+                    >
+                      Withdraw
+                    </Button>
+                  </div>
                 </Col>
               </Row>
             </Col>
 
             <Col md={6}>
-              <Row className="g-4">
+              <Row className="flex-column gap-4 flex-md-row g-md-4 gap-md-0">
                 <Col>
                   <div
                     className="d-flex gap-3 align-items-center"
@@ -139,7 +134,7 @@ function Overview() {
                     </div>
                     <div className="d-flex flex-column">
                       <span style={smallStyles} className="fs-6 fw-semibold">
-                        Fiat Balance
+                        ETH Balance
                       </span>
                       <span
                         style={useMarginTop}

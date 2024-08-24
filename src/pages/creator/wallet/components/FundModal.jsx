@@ -38,10 +38,10 @@ const FundModal = ({ showFundModal, handleShowFundModal, address }) => {
       <Modal.Header closeButton>
         <Modal.Title>Fund wallet</Modal.Title>
       </Modal.Header>
-      <Modal.Body>
-        {/* <h5 className="useAppWhite fs-5 fw-medium">
+      <Modal.Body className="d-flex flex-column gap-3">
+        <h5 className="useAppWhite fs-5 fw-medium">
           Note: BUILDS token is the only required token to fund this wallet
-        </h5> */}
+        </h5>
         <div style={divStyles} className="d-flex align-items-center gap-3">
           <div>
             <BuidlIcon />
