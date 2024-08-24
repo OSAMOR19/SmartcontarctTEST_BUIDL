@@ -3,6 +3,7 @@ import images from "../../../../constants/images";
 import WalletIcon from "../../../../assets/icons/wallet-icon.svg";
 import BuidlCoin from "../../../../assets/icons/buidl-coin.svg";
 import { useNavigate } from "react-router-dom";
+import useWallet from "../../../../hooks/useWallet";
 import MediumSolidButton from "../../../../components/ui/buttons/MediumSolidButton";
 
 const Overview = () => {
@@ -10,10 +11,20 @@ const Overview = () => {
   const handleCreateProject = () => {
     navigate("/creator/create-project");
   };
+  const { tokenBalance } = useWallet();
+
   const cardBody = {
     backgroundColor: "#272A38",
     padding: "1rem 1.5rem",
     borderRadius: 14 + "px",
+  };
+
+  const smallStyles = {
+    color: "#999999",
+  };
+
+  const useMargin = {
+    margin: "-5px 0px",
   };
 
   return (
@@ -28,24 +39,21 @@ const Overview = () => {
             className="d-flex gap-3 align-items-center h-100"
             style={cardBody}
           >
-            <WalletIcon />
-            <div className="d-flex flex-column align-items-start gap-1">
-              <span style={{ color: "#999999", fontSize: "1rem" }}>
+            <div>
+              <WalletIcon />
+            </div>
+            <div className="d-flex flex-column align-items-start">
+              <span style={smallStyles} className="fs-6 fw-semibold">
                 Total Balance
               </span>
-              <div
-                className="d-flex gap-2 align-items-center"
-                style={{
-                  color: "#ffffff",
-                  fontSize: "2rem",
-                  margin: "-10px 0",
-                }}
-              >
+              <div className="d-flex gap-2 align-items-center">
                 <BuidlCoin />
-                <span className="fw-bold">0.00</span>
+                <span style={useMargin} className="useAppWhite fs-2 fw-bold">
+                  {tokenBalance}
+                </span>
               </div>
-              <span style={{ color: "#999999", fontSize: "1rem" }}>
-                ~ $ 0.00
+              <span style={smallStyles} className="fs-6 fw-semibold">
+                ~ $ 00.00
               </span>
             </div>
           </div>

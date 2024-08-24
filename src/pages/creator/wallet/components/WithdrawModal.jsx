@@ -41,59 +41,55 @@ const WithdrawModal = ({ showWithdrawModal, handleShowWithdrawModal }) => {
       centered
       className="modalBgColor"
     >
-      {/* Pls complete the design fron figma,  */}
-      <Modal.Body>
-        <div className="py-2 h-[600px] d-flex flex-column gap-4">
-          <div className="flex w-full ">
-            <h5 className="useAppWhite fw-bold">Withdraw Funds</h5>
-          </div>
-          <h5 className="useAppWhite fw-bold">
-            Note: Withdrawal can be made to a third party wallet that accepts
-            BUILDS token.
-          </h5>
-          <div className="d-flex flex-column gap-3">
-            <Row>
-              <InputLabel
-                label="Wallet Address"
-                id="walletAddress"
-                name="walletAddress"
-                type="text"
-                required={true}
-                placeholder="Enter withdrawal address"
-                value={walletAddress}
-                onChange={handleWalletAddressChange}
-              />
-              <InputLabel
-                label="Amount"
-                id="amount"
-                name="amount"
-                type="text"
-                required={true}
-                placeholder="Enter amount"
-                value={amount}
-                onChange={handleAmountChange}
-              />
-            </Row>
-            <div className="d-flex gap-3">
-              <MediumSolidButton
-                type="button"
-                text={
-                  isLoading ? (
-                    <Spinner animation="border" role="status">
-                      <span className="visually-hidden">Loading...</span>
-                    </Spinner>
-                  ) : (
-                    "Withdraw"
-                  )
-                }
-                style={btnStyles}
-                disabled={!walletAddress || !amount}
-                onClick={handleWithdraw}
-              />
-            </div>
-          </div>
+      <Modal.Header closeButton>
+        <Modal.Title>Withdraw Funds</Modal.Title>
+      </Modal.Header>
+      <Modal.Body className="d-flex flex-column">
+        <h5 className="useAppWhite fs-5 fw-medium mb-0">
+          Note: BUILDS token is the only required token to fund this wallet
+        </h5>
+        <div className="mt-0">
+          <InputLabel
+            label="Wallet Address"
+            id="walletAddress"
+            name="walletAddress"
+            type="text"
+            required={true}
+            placeholder="Enter withdrawal address"
+            value={walletAddress}
+            onChange={handleWalletAddressChange}
+          />
+        </div>
+        <div className="mt-0">
+          <InputLabel
+            label="Amount"
+            id="amount"
+            name="amount"
+            type="text"
+            required={true}
+            placeholder="Enter amount"
+            value={amount}
+            onChange={handleAmountChange}
+          />
         </div>
       </Modal.Body>
+      <Modal.Footer>
+        <MediumSolidButton
+          type="button"
+          text={
+            isLoading ? (
+              <Spinner animation="border" role="status">
+                <span className="visually-hidden">Loading...</span>
+              </Spinner>
+            ) : (
+              "Withdraw"
+            )
+          }
+          style={btnStyles}
+          disabled={!walletAddress || !amount}
+          onClick={handleWithdraw}
+        />
+      </Modal.Footer>
     </Modal>
   );
 };

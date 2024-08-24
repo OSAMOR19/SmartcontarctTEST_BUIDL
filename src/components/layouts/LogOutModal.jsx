@@ -12,7 +12,6 @@ const LogOutModal = ({ showLogoutModal, handleShowLogoutModal }) => {
 
   const handleLogout = () => {
     dispatch(logoutUser());
-    setShowLogout(false);
     navigate("/auth/login");
   };
 

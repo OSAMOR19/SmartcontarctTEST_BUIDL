@@ -1,7 +1,8 @@
 import { Modal } from "react-bootstrap";
-import MediumSolidButton from "../../../../components/ui/buttons/MediumSolidButton";
 import copyToClipboard from "../../../../lib/copy";
 import toastService from "../../../../lib/taostService";
+import MediumSolidButton from "../../../../components/ui/buttons/MediumSolidButton";
+import BuidlIcon from "../../../../assets/icons/buidl-icon.svg";
 
 // eslint-disable-next-line react/prop-types
 const FundModal = ({ showFundModal, handleShowFundModal, address }) => {
@@ -13,6 +14,13 @@ const FundModal = ({ showFundModal, handleShowFundModal, address }) => {
     } catch (error) {
       toastService.showErrorMessage("Failed to copy address");
     }
+  };
+
+  const divStyles = {
+    padding: "2rem 1rem",
+    background: "#222532",
+    border: "1.2px solid #3F4561",
+    borderRadius: "14px",
   };
 
   const btnStyles = {
@@ -27,28 +35,32 @@ const FundModal = ({ showFundModal, handleShowFundModal, address }) => {
       centered
       className="modalBgColor"
     >
-      {/* Pls complete the design fron figma,  */}
+      <Modal.Header closeButton>
+        <Modal.Title>Fund wallet</Modal.Title>
+      </Modal.Header>
       <Modal.Body>
-        <div className="py-2 h-[600px] d-flex flex-column gap-4">
-          <div className="flex w-full ">
-            <h5 className="useAppWhite fw-bold">Fund wallet</h5>
-          </div>
-          <h5 className="useAppWhite fw-bold">
-            Note: BUILDS token is the only required token to fund this wallet
-          </h5>
+        {/* <h5 className="useAppWhite fs-5 fw-medium">
+          Note: BUILDS token is the only required token to fund this wallet
+        </h5> */}
+        <div style={divStyles} className="d-flex align-items-center gap-3">
           <div>
-            <p className="useAppWhite">{address}</p>
-            <div className="d-flex gap-3">
-              <MediumSolidButton
-                type="button"
-                text="Copy address"
-                style={btnStyles}
-                onClick={handleCopy}
-              />
-            </div>
+            <BuidlIcon />
           </div>
+          <span className="useAppYellow mt-0 fs-4 fw-bold">BUILDS Token</span>
         </div>
+        <h5 className="useAppWhite fs-5 fw-medium">
+          Note: BUILDS token is the only required token to fund this wallet
+        </h5>
       </Modal.Body>
+      <Modal.Footer>
+        <p className="useAppWhite fw-medium">{address}</p>
+        <MediumSolidButton
+          type="button"
+          text="Copy address"
+          style={btnStyles}
+          onClick={handleCopy}
+        />
+      </Modal.Footer>
     </Modal>
   );
 };

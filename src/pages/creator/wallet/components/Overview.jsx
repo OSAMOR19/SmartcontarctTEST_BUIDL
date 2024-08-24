@@ -19,7 +19,7 @@ function Overview() {
   };
 
   const cardBody = {
-    backgroundColor: "#222532",
+    backgroundColor: "#272A38",
     padding: "1rem 1rem ",
     borderRadius: 12 + "px",
     height: "auto",
@@ -55,128 +55,127 @@ function Overview() {
     width: 100 + "%",
   };
 
+  const smallStyles = {
+    color: "#999999",
+  };
+
+  const useMargin = {
+    margin: "-5px 0px",
+  };
+
+  const useMarginTop = {
+    marginTop: "-10px",
+  };
+
   const { balance, tokenBalance, address } = useWallet();
 
   return (
-    <Container>
-      <div style={cardBody}>
-        <Row className="align-items-center g-5">
-          <Col md={6}>
-            <Row className="align-items-center g-4">
-              <Col lg={6}>
-                <div className="d-flex align-items-center gap-2">
-                  <div>
-                    <WalletIcon />
+    <>
+      <Container>
+        <div style={cardBody}>
+          <Row className="align-items-center g-5">
+            <Col md={6}>
+              <Row className="align-items-center g-4">
+                <Col lg={6}>
+                  <div className="d-flex align-items-center gap-3">
+                    <div>
+                      <WalletIcon />
+                    </div>
+                    <div className="d-flex flex-column align-items-start">
+                      <span style={smallStyles} className="fs-6 fw-semibold">
+                        Total Balance
+                      </span>
+                      <div className="d-flex gap-2 align-items-center">
+                        <BuidlCoin />
+                        <span
+                          style={useMargin}
+                          className="useAppWhite fs-2 fw-bold"
+                        >
+                          {tokenBalance}
+                        </span>
+                      </div>
+                      <span style={smallStyles} className="fs-6 fw-semibold">
+                        ~ $ 00.00
+                      </span>
+                    </div>
                   </div>
-                  <div className="d-flex flex-column g-2 align-items-start">
-                    <span style={{ color: "#999999", fontSize: "1rem" }}>
-                      Total Balance
-                    </span>
-                    <div
-                      className="d-flex gap-2 align-items-center"
-                      style={{
-                        color: "#ffffff",
-                        fontSize: "1.5rem",
-                      }}
-                    >
-                      <BuidlCoin />
+                </Col>
+                <Col lg={6}>
+                  <Row>
+                    <Col>
+                      <Button
+                        type="outline"
+                        style={fundBtn}
+                        size="sm"
+                        onClick={handleShowFundModal}
+                      >
+                        Fund Wallet
+                      </Button>
+                    </Col>
+                    <Col>
+                      <Button
+                        type="outline"
+                        style={withdrawBtn}
+                        size="sm"
+                        onClick={handleShowWithdrawModal}
+                      >
+                        Withdraw
+                      </Button>
+                    </Col>
+                  </Row>
+                </Col>
+              </Row>
+            </Col>
+
+            <Col md={6}>
+              <Row className="g-4">
+                <Col>
+                  <div
+                    className="d-flex gap-3 align-items-center"
+                    style={cardInner}
+                  >
+                    <div>
+                      <FiatIcon />
+                    </div>
+                    <div className="d-flex flex-column">
+                      <span style={smallStyles} className="fs-6 fw-semibold">
+                        Fiat Balance
+                      </span>
                       <span
-                        style={{
-                          fontWeight: "700",
-                        }}
+                        style={useMarginTop}
+                        className="useAppWhite fs-2 fw-bold"
+                      >
+                        {`$${balance}`}
+                      </span>
+                    </div>
+                  </div>
+                </Col>
+                <Col>
+                  <div
+                    style={cardInner}
+                    className="d-flex gap-3 align-items-center"
+                  >
+                    <div>
+                      <BuidlIcon />
+                    </div>
+                    <div className="d-flex flex-column">
+                      <span style={smallStyles} className="fs-6 fw-semibold">
+                        Builds Balance
+                      </span>
+                      <span
+                        style={useMarginTop}
+                        className="useAppWhite fs-2 fw-bold"
                       >
                         {tokenBalance}
                       </span>
                     </div>
-                    <span style={{ color: "#999999", fontSize: "1rem" }}>
-                      ~ $ 00.00
-                    </span>
                   </div>
-                </div>
-              </Col>
-              <Col lg={6}>
-                <Row>
-                  <Col>
-                    <Button
-                      type="outline"
-                      style={fundBtn}
-                      size="sm"
-                      onClick={handleShowFundModal}
-                    >
-                      Fund Wallet
-                    </Button>{" "}
-                  </Col>
-                  <Col>
-                    <Button
-                      type="outline"
-                      style={withdrawBtn}
-                      size="sm"
-                      onClick={handleShowWithdrawModal}
-                    >
-                      Withdraw
-                    </Button>
-                  </Col>
-                </Row>
-              </Col>
-            </Row>
-          </Col>
-
-          <Col md={6}>
-            <Row className="g-4">
-              <Col>
-                <div
-                  className="d-flex gap-3 align-items-center"
-                  style={cardInner}
-                >
-                  <div>
-                    <FiatIcon />
-                  </div>
-                  <div className="d-flex flex-column gap-3">
-                    <span style={{ color: "#999999" }}>ETH Balance</span>
-                    <h6
-                      style={{
-                        color: "#ffffff",
-                        fontSize: "1.5rem",
-                        margin: "0px",
-                        marginTop: "-20px",
-                        fontWeight: "700",
-                      }}
-                    >
-                      {balance} ETH
-                    </h6>
-                  </div>
-                </div>
-              </Col>
-              <Col>
-                <div
-                  style={cardInner}
-                  className="d-flex gap-3 align-items-center"
-                >
-                  <div>
-                    <BuidlIcon />
-                  </div>
-                  <div className="d-flex flex-column gap-3">
-                    <span style={{ color: "#999999", fontSize: 0.8 + "rem" }}>
-                      BUILDS Balance
-                    </span>
-                    <h6
-                      style={{
-                        color: "#ffffff",
-                        fontSize: "1.5rem",
-                        margin: "0px",
-                        marginTop: "-20px",
-                        fontWeight: "700",
-                      }}
-                    >
-                      {tokenBalance} BUILDS
-                    </h6>
-                  </div>
-                </div>
-              </Col>
-            </Row>
-          </Col>
-        </Row>
-      </div>
+                </Col>
+              </Row>
+            </Col>
+          </Row>
+        </div>
+      </Container>
       <FundModal
         showFundModal={showFundModal}
         handleShowFundModal={handleShowFundModal}
@@ -187,7 +186,7 @@ function Overview() {
         handleShowWithdrawModal={handleShowWithdrawModal}
         address={address}
       />
-    </Container>
+    </>
   );
 }
 
